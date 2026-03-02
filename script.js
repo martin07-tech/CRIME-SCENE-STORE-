@@ -6,13 +6,21 @@ function showSection(id){
     document.getElementById(id).style.display='block';
 }
 
-// ADD TO CART
-function addToCart(name, price){
-    cart.push({name, price});
+// ADD TO CART WITH SIZE
+function addToCart(button, name, price){
+    const product = button.closest('.product');
+    const sizeSelect = product.querySelector('.size-select');
+    const size = sizeSelect.value;
+
+    if(size === ""){
+        alert("Select size first");
+        return;
+    }
+
+    cart.push({name, price, size});
     updateCart();
 }
 
-// UPDATE CART DISPLAY
 function updateCart(){
     const items = document.getElementById('cartItems');
     items.innerHTML = '';
@@ -22,7 +30,7 @@ function updateCart(){
         total += item.price;
         items.innerHTML += `
         <div class="cart-item">
-            ${item.name} - R${item.price} 
+            ${item.name} (${item.size}) - R${item.price}
             <button onclick="removeItem(${i})">❌</button>
         </div>`;
     });
@@ -43,11 +51,15 @@ function toggleCart(){
     modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// SEND ORDER VIA WHATSAPP
 function sendOrder(){
     if(cart.length === 0) return alert("No evidence selected");
+
     let msg = 'Hello CRIME SCENE,%0A%0AEvidence Bag:%0A';
-    cart.forEach(i => msg += `• ${i.name} - R${i.price}%0A`);
+
+    cart.forEach(i => {
+        msg += `• ${i.name} (${i.size}) - R${i.price}%0A`;
+    });
+
     window.open(`https://wa.me/27692574788?text=${msg}`);
 }
 
