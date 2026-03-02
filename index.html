@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRIME SCENE | Leave Evidence</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- BLOOD SPLATTER BACKGROUND -->
+<div class="overlay"></div>
+
+<header>
+  <div class="logo">CRIME SCENE</div>
+  <div class="slogan">⚠️ Leave Evidence ⚠️</div>
+</header>
+
+<nav>
+  <div>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('shop')">Shop</a>
+  </div>
+
+  <input type="search" id="searchInput" placeholder="Search evidence..." onkeyup="searchProducts()">
+
+  <div class="cart" onclick="toggleCart()">🛒
+    <span class="cart-count" id="cartCount">0</span>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="page-section">
+
+  <div class="crime-hero">
+    <h1>ENTER THE SCENE</h1>
+    <p>No witnesses. No mercy. Just style.</p>
+    <button onclick="showSection('shop')" class="scene-btn">View Evidence</button>
+  </div>
+
+  <!-- IMAGE MODAL -->
+  <div id="imageModal" class="image-modal" onclick="closeImage()">
+    <img id="fullImage">
+  </div>
+
+  <div class="ambassador">
+    <h2>WANTED FILES</h2>
+
+    <div class="ambassador-slider" id="ambassadorSlider">
+
+      <div class="ambassador-card">
+        <img src="IMG-20260201-WA0130.jpg" onclick="openImage(this.src)">
+        <div class="ambassador-info">
+          <h3>ARRESTED</h3>
+          <p>Fearless. Silent. Built to leave evidence.</p>
+        </div>
+      </div>
+
+      <div class="ambassador-card">
+        <img src="IMG-20260201-WA0102.jpg" onclick="openImage(this.src)">
+        <div class="ambassador-info">
+          <h3>WANTED</h3>
+          <p>Discipline over noise.</p>
+        </div>
+      </div>
+
+      <div class="ambassador-card">
+        <img src="IMG-20260201-WA0106.jpg" onclick="openImage(this.src)">
+        <div class="ambassador-info">
+          <h3>PROTECT EVIDENCE</h3>
+          <p>The scene changed when we arrived.</p>
+        </div>
+      </div>
+
+      <div class="ambassador-card">
+        <img src="IMG-20260201-WA0088.jpg" onclick="openImage(this.src)">
+        <div class="ambassador-info">
+          <h3>NO ESCAPE</h3>
+          <p>If you're wearing Crime Scene, you're already guilty.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="news">
+    <h2>CASE UPDATES</h2>
+    <div class="news-grid">
+      <div class="news-card">🔥 New Drop Incoming</div>
+      <div class="news-card">🚚 Free Delivery | 💵 Cash Only</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- SHOP -->
+<section id="shop" class="page-section" style="display:none;">
+
+<div class="product-nav">
+<button class="active" onclick="filterProducts('all', this)">All</button>
+<button onclick="filterProducts('tshirt', this)">T-Shirts</button>
+<button onclick="filterProducts('hoodie', this)">Hoodies</button>
+<button onclick="filterProducts('pants', this)">Pants</button>
+<button onclick="filterProducts('capglove', this)">Others</button>
+</div>
+
+<h2 class="shop-title">EVIDENCE LOCKER</h2>
+
+<div class="product-grid">
+
+<div class="product" data-category="hoodie">
+  <img src="crimescenehoodie.jpg">
+  <h3>Crime Scene Hoodie</h3>
+  <p>R290</p>
+  <button onclick="addToCart('Crime Scene Hoodie',290)">Add to Cart</button>
+</div>
+
+<div class="product" data-category="tshirt">
+  <img src="IMG-20260204-WA0002.jpg">
+  <h3>Caught In Style (Black)</h3>
+  <p>R190</p>
+  <button onclick="addToCart('Caught In Style (Black)',190)">Add to Cart</button>
+</div>
+
+<div class="product" data-category="hoodie">
+  <img src="policelinehoodie(white).jpg">
+  <h3>Police Line Hoodie (White)</h3>
+  <p>R375</p>
+  <button onclick="addToCart('Police Line Hoodie (White)',375)">Add to Cart</button>
+</div>
+
+<div class="product" data-category="tshirt">
+  <img src="IMG-20260204-WA0004.jpg">
+  <h3>Evidence T-Shirt</h3>
+  <p>R230</p>
+  <button onclick="addToCart('Evidence T-Shirt',230)">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<!-- CART -->
+<div class="cart-modal" id="cartModal">
+  <div class="cart-box">
+    <h3>CONFISCATED ITEMS</h3>
+    <div id="cartItems"></div>
+    <h4>Total: R <span id="cartTotal">0</span></h4>
+    <button onclick="sendOrder()">Send Order via WhatsApp</button>
+    <button onclick="toggleCart()">Close</button>
+  </div>
+</div>
+
+<footer>
+© 2026 CRIME SCENE. All Rights Reserved.
+</footer>
+
+<script src="script.js"></script>
+</body>
+  </html>
