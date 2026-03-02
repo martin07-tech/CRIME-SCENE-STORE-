@@ -379,12 +379,7 @@ footer {
 }
 
 .drop-preview img{
-    min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: url('crime_scene_bg.jpg') center/cover no-repeat;
-  position: relative;
+    width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
