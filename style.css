@@ -377,3 +377,7 @@ footer {
     color: white;
     border: 1px solid red;
 }
+.drop-preview img{
+    width:100%;
+    border-radius:8px;
+}
