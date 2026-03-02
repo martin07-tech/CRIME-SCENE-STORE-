@@ -377,7 +377,14 @@ footer {
     color: white;
     border: 1px solid red;
 }
+
 .drop-preview img{
-    width:100%;
-    border-radius:8px;
+    min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('crime_scene_bg.jpg') center/cover no-repeat;
+  position: relative;
 }
