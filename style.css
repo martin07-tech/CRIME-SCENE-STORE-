@@ -368,3 +368,12 @@ footer {
     text-align: center;
     color: white;
   }
+
+.size-select{
+    width: 100%;
+    padding: 6px;
+    margin: 8px 0;
+    background: #111;
+    color: white;
+    border: 1px solid red;
+}
