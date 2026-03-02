@@ -84,3 +84,15 @@ function autoScroll(){
     }
 }
 setInterval(autoScroll, 50);
+
+// FILTER PRODUCTS BY CATEGORY
+function filterProducts(category){
+    document.querySelectorAll('.product').forEach(product => {
+        if(category === 'all'){
+            product.style.display = 'block';
+        } else {
+            const productCategory = product.getAttribute('data-category');
+            product.style.display = productCategory === category ? 'block' : 'none';
+        }
+    });
+}
