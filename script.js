@@ -1,40 +1,91 @@
-// CART SYSTEM
-let cart = [];
+// ===============================
+// SHOP SYSTEM
+// ===============================
 
-function showSection(id){
-    document.querySelectorAll('.page-section').forEach(s => s.style.display='none');
-    document.getElementById(id).style.display='block';
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-// ADD TO CART
-function addToCart(name, price){
-    cart.push({name, price});
-    updateCart();
-}
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartCountEl = document.getElementById("cart-count");
+    const cartItemsEl = document.getElementById("cart-items");
 
-// UPDATE CART DISPLAY
-function updateCart(){
-    const items = document.getElementById('cartItems');
-    items.innerHTML = '';
-    let total = 0;
+    updateCartUI();
 
-    cart.forEach((item, i) => {
-        total += item.price;
-        items.innerHTML += `
-        <div class="cart-item">
-            ${item.name} - R${item.price} 
-            <button onclick="removeItem(${i})">❌</button>
-        </div>`;
+    // ===============================
+    // ADD TO CART
+    // ===============================
+
+    document.querySelectorAll(".buy-btn").forEach(button => {
+        button.addEventListener("click", (e) => {
+
+            const productCard = e.target.closest(".product-card");
+
+            const productName = productCard.querySelector("h3").innerText;
+            const productPrice = productCard.querySelector("p").innerText;
+
+            const product = {
+                id: Date.now(),
+                name: productName,
+                price: productPrice
+            };
+
+            cart.push(product);
+            saveCart();
+            updateCartUI();
+        });
     });
 
-    document.getElementById('cartCount').innerText = cart.length;
-    document.getElementById('cartTotal').innerText = total;
-}
+    // ===============================
+    // SAVE CART
+    // ===============================
 
-// REMOVE ITEM
-function removeItem(i){
-    cart.splice(i, 1);
-    updateCart();
+    function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    // ===============================
+    // UPDATE CART UI
+    // ===============================
+
+    function updateCartUI() {
+
+        if (cartCountEl) {
+            cartCountEl.innerText = cart.length;
+        }
+
+        if (cartItemsEl) {
+            cartItemsEl.innerHTML = "";
+
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    ${item.name} - ${item.price}
+                    <button class="remove-btn" data-id="${item.id}">X</button>
+                `;
+                cartItemsEl.appendChild(li);
+            });
+
+            addRemoveEvents();
+        }
+    }
+
+    // ===============================
+    // REMOVE ITEM
+    // ===============================
+
+    function addRemoveEvents() {
+        document.querySelectorAll(".remove-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+
+                const id = Number(btn.getAttribute("data-id"));
+
+                cart = cart.filter(item => item.id !== id);
+                saveCart();
+                updateCartUI();
+            });
+        });
+    }
+
+});    updateCart();
 }
 
 // TOGGLE CART MODAL
