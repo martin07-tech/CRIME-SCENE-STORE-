@@ -428,3 +428,45 @@ box-shadow: 0 0 10px black;
 background: #555;
 cursor: not-allowed;
 }
+/* FOOTER */
+
+.crime-footer{
+background:#000;
+padding:60px 20px;
+text-align:center;
+border-top:2px solid #e50914;
+}
+
+.crime-footer h2{
+color:#e50914;
+margin-bottom:20px;
+letter-spacing:3px;
+}
+
+.socials{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.socials a{
+color:white;
+text-decoration:none;
+background:#1a1a1a;
+padding:12px 18px;
+border-radius:6px;
+transition:0.3s;
+border:1px solid #333;
+}
+
+.socials a:hover{
+background:#e50914;
+transform:scale(1.05);
+}
+
+.copyright{
+opacity:0.6;
+font-size:14px;
+}
