@@ -396,3 +396,35 @@ min-width: 60vw;
   box-shadow: 0 0 20px red inset;
   cursor: pointer;
 }
+
+.product {
+position: relative;
+overflow: hidden;
+}
+
+/* COMING SOON BADGE */
+
+.coming-badge {
+position: absolute;
+top: 12px;
+left: -40px;
+
+background: #e50914;
+color: white;
+
+padding: 8px 50px;
+
+font-size: 12px;
+font-weight: bold;
+letter-spacing: 2px;
+
+transform: rotate(-45deg);
+box-shadow: 0 0 10px black;
+}
+
+/* disable button look */
+
+.product.coming-soon button{
+background: #555;
+cursor: not-allowed;
+}
