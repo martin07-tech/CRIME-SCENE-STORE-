@@ -1,9 +1,14 @@
 // CART SYSTEM
 let cart = [];
 
-function showSection(id){
-    document.querySelectorAll('.page-section').forEach(s => s.style.display='none');
-    document.getElementById(id).style.display='block';
+function showSection(sectionId){
+
+document.querySelectorAll(".page-section").forEach(section=>{
+section.style.display="none";
+});
+
+document.getElementById(sectionId).style.display="block";
+
 }
 
 // ADD TO CART WITH SIZE
