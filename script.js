@@ -20,25 +20,32 @@ function showSection(sectionId) {
 // ===============================
 // CART SYSTEM
 // ===============================
-function addToCart(button, name, price) {
+function addToCart(button, name, price){
 
-  const product = button.closest(".product");
-  const sizeSelect = product.querySelector(".size-select");
+const product = button.closest('.product');
 
-  if (!sizeSelect || sizeSelect.value === "") {
-    alert("Select size first");
-    return;
-  }
+if(!product){
+console.log("Product not found");
+return;
+}
 
-  const size = sizeSelect.value;
+const sizeSelect = product.querySelector('.size-select');
 
-  cart.push({
-    name: name,
-    price: price,
-    size: size
-  });
+let size = "One Size";
 
-  updateCart();
+if(sizeSelect){
+size = sizeSelect.value;
+
+if(size === ""){
+alert("Select size first");
+return;
+}
+}
+
+cart.push({name, price, size});
+
+updateCart();
+}
 }
 
 function updateCart() {
