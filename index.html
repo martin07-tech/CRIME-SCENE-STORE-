@@ -53,85 +53,48 @@
     <button onclick="showSection('shop')" class="scene-btn">View Evidence</button>
   </div>
 
-  <!-- IMAGE MODAL -->
-  <div id="imageModal" class="image-modal" onclick="closeImage()">
-    <img id="fullImage">
-  </div>
-
+  <!-- WANTED FILES -->
   <div class="ambassador">
     <h2>WANTED FILES</h2>
-
     <div class="ambassador-slider" id="ambassadorSlider">
+      ...
+    </div>
+  </div>
 
-      <div class="ambassador-card">
-        <img src="IMG-20260201-WA0130.jpg" onclick="openImage(this.src)">
-        <div class="ambassador-info">
-          <h3>ARRESTED</h3>
-          <p>Fearless. Silent. Built to leave evidence.</p>
+  <!-- CASE UPDATES -->
+  <section class="news">
+
+    <h2 class="news-title">CASE UPDATES</h2>
+
+    <div class="news-grid">
+
+      <div class="news-card drop-preview">
+
+        <div class="drop-image">
+          <img id="mainDrop" src="Screenshot_20260302-211429.png" alt="Crime Scene Drop">
+          <span class="tag">COMING SOON</span>
         </div>
+
+        <div class="thumbs">
+          <img src="Screenshot_20260302-211440.png" onclick="swapImage(this)">
+          <img src="Screenshot_20260302-211429.png" onclick="swapImage(this)">
+        </div>
+
+        <h3>Evidence Hoodie</h3>
+        <p>Next drop arriving soon.</p>
+
       </div>
 
-      <div class="ambassador-card">
-        <img src="IMG-20260201-WA0081.jpg" onclick="openImage(this.src)">
-        <div class="ambassador-info">
-          <h3>WANTED</h3>
-          <p>Discipline over noise.</p>
-        </div>
-      </div>
-
-      <div class="ambassador-card">
-        <img src="IMG-20260201-WA0088.jpg" onclick="openImage(this.src)">
-        <div class="ambassador-info">
-          <h3>PROTECT EVIDENCE</h3>
-          <p>The scene changed when we arrived.</p>
-        </div>
-      </div>
-
-      <div class="ambassador-card">
-        <img src="IMG-20260201-WA0102.jpg" onclick="openImage(this.src)">
-        <div class="ambassador-info">
-          <h3>NO ESCAPE</h3>
-          <p>If you're wearing Crime Scene, you're already guilty.</p>
-        </div>
+      <div class="news-card info-card">
+        <p>🚚 Free Delivery</p>
+        <p>💵 Cash On Delivery</p>
       </div>
 
     </div>
-  </div>
-</section>
 
-  <section class="news">
-
-<h2 class="news-title">CASE UPDATES</h2>
-
-<div class="news-grid">
-
-<div class="news-card drop-preview">
-
-<div class="drop-image">
-<img id="mainDrop" src="Screenshot_20260302-211429.png" alt="Crime Scene Drop">
-<span class="tag">COMING SOON</span>
-</div>
-
-<div class="thumbs">
-<img src="Screenshot_20260302-211440.png" onclick="swapImage(this)">
-<img src="Screenshot_20260302-211429.png" onclick="swapImage(this)">
-<img src="Screenshot_20260302-211440.png" onclick="swapImage(this)">
-</div>
-
-<h3>Evidence Hoodie</h3>
-<p>Next drop arriving soon.</p>
-
-</div>
-
-<div class="news-card info-card">
-<p>🚚 Free Delivery</p>
-<p>💵 Cash On Delivery</p>
-</div>
-
-</div>
+  </section>
 
 </section>
-
 <!-- Info Card -->
 <div class="news-card info-card">
 <p>🚚 Free Delivery</p>
