@@ -327,9 +327,11 @@ color:white;
   box-shadow: 0 0 10px red inset;
   text-align: center;
 }
-.product img {
-  width: 100%;
-  border-radius: 10px;
+.product img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:8px;
 }
 .product button {
   margin-top: 10px;
