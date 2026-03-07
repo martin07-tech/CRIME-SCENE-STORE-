@@ -120,3 +120,10 @@ function filterProducts(category, btn){
         }
     });
 }
+function swapImage(el){
+
+const main = document.getElementById("mainDrop");
+
+main.src = el.src;
+
+}
