@@ -10,7 +10,6 @@
 
 <body>
 
-<!-- BLOOD SPLATTER BACKGROUND -->
 <div class="overlay"></div>
 
 <header>
@@ -31,20 +30,16 @@
   </div>
 </nav>
 
-<!-- HOME -->
-  <section class="hero">
+<section class="hero">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="VID-20260302-WA0000.mp4" type="video/mp4">
+  </video>
 
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="VID-20260302-WA0000.mp4" type="video/mp4">
-    </video>
+  <div class="hero-overlay">
+    <h1>BE PART OF THE CRIME</h1>
+  </div>
+</section>
 
-    <div class="hero-overlay">
-        <h1>BE PART 
-              OF 
-          THE CRIME</h1>
-    </div>
-
-  </section>
 <section id="home" class="page-section">
 
   <div class="crime-hero">
@@ -53,15 +48,12 @@
     <button onclick="showSection('shop')" class="scene-btn">View Evidence</button>
   </div>
 
-  <!-- WANTED FILES -->
   <div class="ambassador">
     <h2>WANTED FILES</h2>
     <div class="ambassador-slider" id="ambassadorSlider">
-      ...
     </div>
   </div>
 
-  <!-- CASE UPDATES -->
   <section class="news">
 
     <h2 class="news-title">CASE UPDATES</h2>
@@ -95,18 +87,7 @@
   </section>
 
 </section>
-<!-- Info Card -->
-<div class="news-card info-card">
-<p>🚚 Free Delivery</p>
-<p>💵 Cash On Delivery</p>
-</div>
 
-</div>
-
-</section>
-
-
-<!-- SHOP -->
 <section id="shop" class="page-section" style="display:none;">
 
 <div class="product-nav">
@@ -122,282 +103,60 @@
 <div class="product-grid">
 
 <div class="product" data-category="hoodie">
-  <img src="policelinehoodie(white).jpg">
-  <h3>Police line Hoodie(WHITE)</h3>
-  <p>R290</p>
-
-  <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
-
-  <button onclick="addToCart(this,'Police line hoodie(WHITE)',290)">
-    Add to Cart
-  </button>
-</div>
-
-<div class="product coming-soon" data-category="tshirt">
-
-    <span class="coming-badge">SEALED EVIDENCE</span>
-
-    <img src="IMG-20260305-WA0013.jpg">
-
-    <h3>CD Police line T-shirt</h3>
-
-    <p>R0</p>
+<img src="policelinehoodie(white).jpg">
+<h3>Police line Hoodie (WHITE)</h3>
+<p>R290</p>
 
 <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
+<option value="">Select Size</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+</select>
 
-    <button disabled>Unavailable</button>
-
-</div>
-
-
-<div class="product" data-category="hoodie">
-  <img src="crimescenehoodie.jpg">
-  <h3>Crime Scene Hoodie</h3>
-  <p>R290</p>
-
-  <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
-
-  <button onclick="addToCart(this,'Crime Scene hoodie',290)">
-    Add to Cart
-  </button>
-</div>
-
-<div class="product" data-category="tshirt">
-  <img src="IMG-20260204-WA0004.jpg">
-  <h3>Evidence T-shirt</h3>
-  <p>R230</p>
-
-  <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
-
-  <button onclick="addToCart(this,'Evidence T-Shirt',230)">
-    Add to Cart
-  </button>
+<button onclick="addToCart(this,'Police line hoodie (WHITE)',290)">Add to Cart</button>
 </div>
 
 <div class="product coming-soon" data-category="tshirt">
-
-    <span class="coming-badge">SEALED EVIDENCE</span>
-
-    <img src="IMG-20260305-WA0007.jpg">
-
-    <h3>A Story T-shirt</h3>
-
-    <p>R0</p>
+<span class="coming-badge">SEALED EVIDENCE</span>
+<img src="IMG-20260305-WA0013.jpg">
+<h3>CD Police line T-shirt</h3>
+<p>R0</p>
 
 <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
+<option value="">Select Size</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+</select>
 
-    <button disabled>Unavailable</button>
-
-</div>
-
-<div class="product coming-soon" data-category="tshirt">
-
-    <span class="coming-badge">SEALED EVIDENCE</span>
-
-    <img src="IMG-20260305-WA0003.jpg">
-
-    <h3>Protect Evidence T-shirt</h3>
-
-    <p>R0</p>
-
-<select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
-
-    <button disabled>Unavailable</button>
-
-</div>
-
-<div class="product coming-soon" data-category="tshirt">
-
-    <span class="coming-badge">SEALED EVIDENCE</span>
-
-    <img src="IMG-20260305-WA0011.jpg">
-
-    <h3>Crime Drip T-shirt(BLACK)</h3>
-
-    <p>R0</p>
-
-<select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
-
-    <button disabled>Unavailable</button>
-
-</div>
-
-
-<div class="product" data-category="tshirt">
-  <img src="IMG-20260204-WA0003.jpg">
-  <h3>Crime T-Shirt</h3>
-  <p>R190</p>
-
-  <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
-
-  <button onclick="addToCart(this,'Crime T-shirt',190)">
-    Add to Cart
-  </button>
-</div>
-
-<div class="product coming-soon" data-category="tshirt">
-
- <span class="coming-badge">SEALED EVIDENCE</span>
-
-  <img src="IMG-20260305-WA0009.jpg">
-  <h3>Case Closed T-Shirt</h3>
-  <p>R0</p>
-
-  <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
-
-  <button disabled>Unavailable</button>
-
-</div>
-
-<div class="product" data-category="tshirt">
-  <img src="IMG-20260204-WA0002.jpg">
-  <h3>Caught in style T-shirt</h3>
-  <p>R190</p>
-
-  <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
-
-  <button onclick="addToCart(this,'Caught in Style T-shirt',190)">
-    Add to Cart
-  </button>
+<button disabled>Unavailable</button>
 </div>
 
 <div class="product" data-category="hoodie">
-  <img src="IMG-20260203-WA0006.jpg">
-  <h3>Police DNC Hoodie(BLACK)</h3>
-  <p>R375</p>
-
-  <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
-
-  <button onclick="addToCart(this,'Police DNC Hoodie(BLACK)',375)">
-    Add to Cart
-  </button>
-</div>
-
-<div class="product coming-soon" data-category="tshirt">
-
-    <span class="coming-badge">SEALED EVIDENCE</span>
-
-    <img src="IMG-20260305-WA0010.jpg">
-
-    <h3>Crime Drip T-shirt(WHITE)</h3>
-
-    <p>R0</p>
+<img src="crimescenehoodie.jpg">
+<h3>Crime Scene Hoodie</h3>
+<p>R290</p>
 
 <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
+<option value="">Select Size</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+</select>
 
-    <button disabled>Unavailable</button>
-
+<button onclick="addToCart(this,'Crime Scene hoodie',290)">Add to Cart</button>
 </div>
 
-
-<div class="product" data-category="hoodie">
-  <img src="IMG-20260203-WA0002.jpg">
-  <h3>Police DNC Hoodie(WHITE)</h3>
-  <p>R375</p>
-
-  <select class="size-select">
-    <option value="">Select Size</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>XXL</option>
-  </select>
-
-  <button onclick="addToCart(this,'Police DNC Hoodie (WHITE)',375)">
-    Add to Cart
-  </button>
-</div>
 </div>
 </section>
 
-
-
-<!-- CART -->
 <div class="cart-modal" id="cartModal">
   <div class="cart-box">
     <h3>CONFISCATED ITEMS</h3>
@@ -435,5 +194,6 @@
 </footer>
 
 <script src="script.js"></script>
+
 </body>
-  </html>
+</html>
