@@ -1,134 +1,216 @@
-// CART SYSTEM
+// ===============================
+// CRIME SCENE STORE JS
+// ===============================
+
+// CART STORAGE
 let cart = [];
 
-function showSection(sectionId){
+// ===============================
+// PAGE NAVIGATION
+// ===============================
+function showSection(sectionId) {
+  document.querySelectorAll(".page-section").forEach(section => {
+    section.style.display = "none";
+  });
 
-document.querySelectorAll(".page-section").forEach(section=>{
-section.style.display="none";
-});
-
-document.getElementById(sectionId).style.display="block";
-
+  const target = document.getElementById(sectionId);
+  if (target) target.style.display = "block";
 }
 
-// ADD TO CART WITH SIZE
-function addToCart(button, name, price){
-    const product = button.closest('.product');
-    const sizeSelect = product.querySelector('.size-select');
-    const size = sizeSelect.value;
+// ===============================
+// CART SYSTEM
+// ===============================
+function addToCart(button, name, price) {
 
-    if(size === ""){
-        alert("Select size first");
-        return;
+  const product = button.closest(".product");
+  const sizeSelect = product.querySelector(".size-select");
+
+  if (!sizeSelect || sizeSelect.value === "") {
+    alert("Select size first");
+    return;
+  }
+
+  const size = sizeSelect.value;
+
+  cart.push({
+    name: name,
+    price: price,
+    size: size
+  });
+
+  updateCart();
+}
+
+function updateCart() {
+
+  const itemsContainer = document.getElementById("cartItems");
+  const cartCount = document.getElementById("cartCount");
+  const cartTotal = document.getElementById("cartTotal");
+
+  if (!itemsContainer) return;
+
+  itemsContainer.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+
+    total += item.price;
+
+    const itemHTML = `
+      <div class="cart-item">
+        ${item.name} (${item.size}) - R${item.price}
+        <button onclick="removeItem(${index})">❌</button>
+      </div>
+    `;
+
+    itemsContainer.innerHTML += itemHTML;
+
+  });
+
+  if (cartCount) cartCount.innerText = cart.length;
+  if (cartTotal) cartTotal.innerText = total;
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+// ===============================
+// CART MODAL
+// ===============================
+function toggleCart() {
+
+  const modal = document.getElementById("cartModal");
+  if (!modal) return;
+
+  modal.style.display =
+    modal.style.display === "flex" ? "none" : "flex";
+}
+
+// ===============================
+// WHATSAPP ORDER
+// ===============================
+function sendOrder() {
+
+  if (cart.length === 0) {
+    alert("No evidence selected");
+    return;
+  }
+
+  let message = "Hello CRIME SCENE,%0A%0AEvidence Bag:%0A";
+
+  cart.forEach(item => {
+    message += `• ${item.name} (${item.size}) - R${item.price}%0A`;
+  });
+
+  const phone = "27692574788";
+
+  window.open(`https://wa.me/${phone}?text=${message}`);
+}
+
+// ===============================
+// IMAGE VIEWER
+// ===============================
+function openImage(src) {
+
+  const modal = document.getElementById("imageModal");
+  const img = document.getElementById("fullImage");
+
+  if (!modal || !img) return;
+
+  img.src = src;
+  modal.style.display = "flex";
+}
+
+function closeImage() {
+
+  const modal = document.getElementById("imageModal");
+  if (modal) modal.style.display = "none";
+}
+
+// ===============================
+// PRODUCT SEARCH
+// ===============================
+function searchProducts() {
+
+  const input = document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+  document.querySelectorAll(".product").forEach(product => {
+
+    const name = product
+      .querySelector("h3")
+      .innerText
+      .toLowerCase();
+
+    if (name.includes(input)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
     }
 
-    cart.push({name, price, size});
-    updateCart();
+  });
 }
 
-function updateCart(){
-    const items = document.getElementById('cartItems');
-    items.innerHTML = '';
-    let total = 0;
+// ===============================
+// PRODUCT FILTER
+// ===============================
+function filterProducts(category, button) {
 
-    cart.forEach((item, i) => {
-        total += item.price;
-        items.innerHTML += `
-        <div class="cart-item">
-            ${item.name} (${item.size}) - R${item.price}
-            <button onclick="removeItem(${i})">❌</button>
-        </div>`;
-    });
+  const products = document.querySelectorAll(".product");
+  const buttons = document.querySelectorAll(".product-nav button");
 
-    document.getElementById('cartCount').innerText = cart.length;
-    document.getElementById('cartTotal').innerText = total;
+  buttons.forEach(btn => btn.classList.remove("active"));
+  if (button) button.classList.add("active");
+
+  products.forEach(product => {
+
+    const productCategory =
+      product.getAttribute("data-category");
+
+    if (category === "all" || productCategory === category) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+
+  });
 }
 
-// REMOVE ITEM
-function removeItem(i){
-    cart.splice(i, 1);
-    updateCart();
+// ===============================
+// DROP IMAGE SWAP
+// ===============================
+function swapImage(element) {
+
+  const main = document.getElementById("mainDrop");
+  if (!main) return;
+
+  main.src = element.src;
 }
 
-// TOGGLE CART MODAL
-function toggleCart(){
-    const modal = document.getElementById('cartModal');
-    modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-}
-
-function sendOrder(){
-    if(cart.length === 0) return alert("No evidence selected");
-
-    let msg = 'Hello CRIME SCENE,%0A%0AEvidence Bag:%0A';
-
-    cart.forEach(i => {
-        msg += `• ${i.name} (${i.size}) - R${i.price}%0A`;
-    });
-
-    window.open(`https://wa.me/27692574788?text=${msg}`);
-}
-
-// IMAGE MODAL
-function openImage(src){
-    const modal = document.getElementById('imageModal');
-    document.getElementById('fullImage').src = src;
-    modal.style.display = 'flex';
-}
-
-function closeImage(){
-    document.getElementById('imageModal').style.display = 'none';
-}
-
-// SEARCH PRODUCTS
-function searchProducts(){
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    document.querySelectorAll('.product').forEach(p => {
-        const name = p.querySelector('h3').innerText.toLowerCase();
-        p.style.display = name.includes(input) ? 'block' : 'none';
-    });
-}
-
-// OPTIONAL: AUTO SCROLL AMBASSADOR SLIDER
-const slider = document.getElementById('ambassadorSlider');
+// ===============================
+// AMBASSADOR AUTO SLIDER
+// ===============================
+const slider = document.getElementById("ambassadorSlider");
 let scrollAmount = 0;
-function autoScroll(){
-    if(slider){
-        scrollAmount += 1;
-        if(scrollAmount > slider.scrollWidth - slider.clientWidth){
-            scrollAmount = 0;
-        }
-        slider.scrollTo({left: scrollAmount, behavior:'smooth'});
-    }
+
+function autoScroll() {
+
+  if (!slider) return;
+
+  scrollAmount += 1;
+
+  if (scrollAmount > slider.scrollWidth - slider.clientWidth) {
+    scrollAmount = 0;
+  }
+
+  slider.scrollTo({
+    left: scrollAmount,
+    behavior: "smooth"
+  });
 }
+
 setInterval(autoScroll, 50);
-
-// FILTER PRODUCTS
-function filterProducts(category, btn){
-    const products = document.querySelectorAll('.product');
-    const buttons = document.querySelectorAll('.product-nav button');
-
-    // remove active class from all buttons
-    buttons.forEach(b => b.classList.remove('active'));
-
-    // add active to clicked button
-    if(btn){
-        btn.classList.add('active');
-    }
-
-    products.forEach(product => {
-        const productCategory = product.getAttribute('data-category');
-
-        if(category === 'all' || productCategory === category){
-            product.style.display = 'block';
-        } else {
-            product.style.display = 'none';
-        }
-    });
-}
-function swapImage(el){
-
-const main = document.getElementById("mainDrop");
-
-main.src = el.src;
-
-}
