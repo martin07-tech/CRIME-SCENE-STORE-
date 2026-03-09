@@ -2,15 +2,8 @@
 // CRIME SCENE STORE JS
 // ===============================
 
-// CART STORAGE
-let cart = JSON.parse(localStorage.getItem("crimeSceneCart")) || [];
-
-// ===============================
-// SAVE CART
-// ===============================
-function saveCart() {
-  localStorage.setItem("crimeSceneCart", JSON.stringify(cart));
-}
+// CART STORAGE (temporary)
+let cart = [];
 
 // ===============================
 // PAGE NAVIGATION
@@ -24,7 +17,10 @@ function showSection(sectionId) {
   });
 
   const target = document.getElementById(sectionId);
-  if (target) target.style.display = "block";
+
+  if (target) {
+    target.style.display = "block";
+  }
 }
 
 // ===============================
@@ -33,6 +29,9 @@ function showSection(sectionId) {
 function addToCart(button, name, price) {
 
   const product = button.closest(".product");
+
+  if (!product) return;
+
   const sizeSelect = product.querySelector(".size-select");
 
   if (!sizeSelect || sizeSelect.value === "") {
@@ -48,7 +47,6 @@ function addToCart(button, name, price) {
 
   cart.push(item);
 
-  saveCart();
   updateCart();
 }
 
@@ -80,12 +78,11 @@ function updateCart() {
     `;
 
     itemsContainer.appendChild(div);
+
   });
 
   if (cartCount) cartCount.innerText = cart.length;
   if (cartTotal) cartTotal.innerText = total;
-
-  saveCart();
 }
 
 // ===============================
@@ -95,7 +92,6 @@ function removeItem(index) {
 
   cart.splice(index, 1);
 
-  saveCart();
   updateCart();
 }
 
@@ -108,12 +104,15 @@ function toggleCart() {
 
   if (!modal) return;
 
-  modal.style.display =
-    modal.style.display === "flex" ? "none" : "flex";
+  if (modal.style.display === "flex") {
+    modal.style.display = "none";
+  } else {
+    modal.style.display = "flex";
+  }
 }
 
 // ===============================
-// SEND WHATSAPP ORDER
+// WHATSAPP ORDER
 // ===============================
 function sendOrder() {
 
@@ -123,7 +122,6 @@ function sendOrder() {
   }
 
   let message = "Hello CRIME SCENE,%0A%0AEvidence Bag:%0A";
-
   let total = 0;
 
   cart.forEach(item => {
@@ -152,6 +150,7 @@ function openImage(src) {
   if (!modal || !img) return;
 
   img.src = src;
+
   modal.style.display = "flex";
 }
 
@@ -181,8 +180,11 @@ function searchProducts() {
       .innerText
       .toLowerCase();
 
-    product.style.display =
-      name.includes(input) ? "block" : "none";
+    if (name.includes(input)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
 
   });
 }
@@ -197,12 +199,13 @@ function filterProducts(category, button) {
 
   buttons.forEach(btn => btn.classList.remove("active"));
 
-  if (button) button.classList.add("active");
+  if (button) {
+    button.classList.add("active");
+  }
 
   products.forEach(product => {
 
-    const productCategory =
-      product.getAttribute("data-category");
+    const productCategory = product.getAttribute("data-category");
 
     if (category === "all" || productCategory === category) {
       product.style.display = "block";
@@ -241,10 +244,7 @@ function autoScroll() {
     scrollAmount = 0;
   }
 
-  slider.scrollTo({
-    left: scrollAmount,
-    behavior: "smooth"
-  });
+  slider.scrollLeft = scrollAmount;
 }
 
 // ===============================
@@ -253,8 +253,6 @@ function autoScroll() {
 document.addEventListener("DOMContentLoaded", () => {
 
   slider = document.getElementById("ambassadorSlider");
-
-  updateCart();
 
   setInterval(autoScroll, 50);
 
