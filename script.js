@@ -3,13 +3,23 @@
 // ===============================
 
 // CART STORAGE
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("crimeSceneCart")) || [];
+
+// ===============================
+// SAVE CART
+// ===============================
+function saveCart() {
+  localStorage.setItem("crimeSceneCart", JSON.stringify(cart));
+}
 
 // ===============================
 // PAGE NAVIGATION
 // ===============================
 function showSection(sectionId) {
-  document.querySelectorAll(".page-section").forEach(section => {
+
+  const sections = document.querySelectorAll(".page-section");
+
+  sections.forEach(section => {
     section.style.display = "none";
   });
 
@@ -18,7 +28,7 @@ function showSection(sectionId) {
 }
 
 // ===============================
-// CART SYSTEM
+// ADD TO CART
 // ===============================
 function addToCart(button, name, price) {
 
@@ -30,17 +40,21 @@ function addToCart(button, name, price) {
     return;
   }
 
-  const size = sizeSelect.value;
-
-  cart.push({
+  const item = {
     name: name,
     price: price,
-    size: size
-  });
+    size: sizeSelect.value
+  };
 
+  cart.push(item);
+
+  saveCart();
   updateCart();
 }
 
+// ===============================
+// UPDATE CART
+// ===============================
 function updateCart() {
 
   const itemsContainer = document.getElementById("cartItems");
@@ -50,29 +64,38 @@ function updateCart() {
   if (!itemsContainer) return;
 
   itemsContainer.innerHTML = "";
+
   let total = 0;
 
   cart.forEach((item, index) => {
 
     total += item.price;
 
-    const itemHTML = `
-      <div class="cart-item">
-        ${item.name} (${item.size}) - R${item.price}
-        <button onclick="removeItem(${index})">❌</button>
-      </div>
+    const div = document.createElement("div");
+    div.className = "cart-item";
+
+    div.innerHTML = `
+      ${item.name} (${item.size}) - R${item.price}
+      <button onclick="removeItem(${index})">❌</button>
     `;
 
-    itemsContainer.innerHTML += itemHTML;
-
+    itemsContainer.appendChild(div);
   });
 
   if (cartCount) cartCount.innerText = cart.length;
   if (cartTotal) cartTotal.innerText = total;
+
+  saveCart();
 }
 
+// ===============================
+// REMOVE ITEM
+// ===============================
 function removeItem(index) {
+
   cart.splice(index, 1);
+
+  saveCart();
   updateCart();
 }
 
@@ -82,6 +105,7 @@ function removeItem(index) {
 function toggleCart() {
 
   const modal = document.getElementById("cartModal");
+
   if (!modal) return;
 
   modal.style.display =
@@ -89,7 +113,7 @@ function toggleCart() {
 }
 
 // ===============================
-// WHATSAPP ORDER
+// SEND WHATSAPP ORDER
 // ===============================
 function sendOrder() {
 
@@ -100,13 +124,21 @@ function sendOrder() {
 
   let message = "Hello CRIME SCENE,%0A%0AEvidence Bag:%0A";
 
+  let total = 0;
+
   cart.forEach(item => {
+
+    total += item.price;
+
     message += `• ${item.name} (${item.size}) - R${item.price}%0A`;
+
   });
+
+  message += `%0ATotal: R${total}`;
 
   const phone = "27692574788";
 
-  window.open(`https://wa.me/${phone}?text=${message}`);
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 }
 
 // ===============================
@@ -126,6 +158,7 @@ function openImage(src) {
 function closeImage() {
 
   const modal = document.getElementById("imageModal");
+
   if (modal) modal.style.display = "none";
 }
 
@@ -139,18 +172,17 @@ function searchProducts() {
     .value
     .toLowerCase();
 
-  document.querySelectorAll(".product").forEach(product => {
+  const products = document.querySelectorAll(".product");
+
+  products.forEach(product => {
 
     const name = product
       .querySelector("h3")
       .innerText
       .toLowerCase();
 
-    if (name.includes(input)) {
-      product.style.display = "block";
-    } else {
-      product.style.display = "none";
-    }
+    product.style.display =
+      name.includes(input) ? "block" : "none";
 
   });
 }
@@ -164,6 +196,7 @@ function filterProducts(category, button) {
   const buttons = document.querySelectorAll(".product-nav button");
 
   buttons.forEach(btn => btn.classList.remove("active"));
+
   if (button) button.classList.add("active");
 
   products.forEach(product => {
@@ -181,11 +214,12 @@ function filterProducts(category, button) {
 }
 
 // ===============================
-// DROP IMAGE SWAP
+// IMAGE SWAP
 // ===============================
 function swapImage(element) {
 
   const main = document.getElementById("mainDrop");
+
   if (!main) return;
 
   main.src = element.src;
@@ -194,8 +228,8 @@ function swapImage(element) {
 // ===============================
 // AMBASSADOR AUTO SLIDER
 // ===============================
-const slider = document.getElementById("ambassadorSlider");
 let scrollAmount = 0;
+let slider;
 
 function autoScroll() {
 
@@ -213,4 +247,15 @@ function autoScroll() {
   });
 }
 
-setInterval(autoScroll, 50);
+// ===============================
+// INITIALIZE
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+
+  slider = document.getElementById("ambassadorSlider");
+
+  updateCart();
+
+  setInterval(autoScroll, 50);
+
+});
