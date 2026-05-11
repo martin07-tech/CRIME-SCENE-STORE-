@@ -1,149 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- TITLE -->
-    <title>CRIME SCENE | Leave Evidence</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRIME SCENE | Leave Evidence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo-area">
-            <img src="assests/images/InShot_20260411_144224557.jpg" alt="CRIME SCENE Logo" class="logo">
-        </div>
-        <div class="nav-links">
-            <a href="#home">HOME</a>
-            <a href="#about">ABOUT</a>
-            <a href="#evidence">EVIDENCE</a>
-            <button class="shop-btn">SHOP</button>
-        </div>
-        <div class="search-box">
-            <input type="text" placeholder="Wanted file...">
-        </div>
-    </nav>
+  <!-- NAV -->
+  <nav>
+    <a href="#home" class="nav-logo">CRIME<span>.</span>SCENE</a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#evidence">Evidence</a>
+      <button class="nav-shop">Shop</button>
+    </div>
+    <input class="nav-search" type="text" placeholder="Search evidence…">
+  </nav>
 
-    <!-- HERO SECTION -->
-    <header class="hero" id="home">
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <p class="small-text">2026 STREETWEAR DROP</p>
-            <h1>LEAVE<br>EVIDENCE</h1>
-            <p class="hero-description">
-                Too clean to be innocent. Too real to be copied.
-            </p>
-            <div class="hero-buttons">
-                <button class="cta-btn">VIEW COLLECTION</button>
-            </div>
-        </div>
-    </header>
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="hero-bg"></div>
 
-    <!-- BRAND STORY SECTION -->
-    <section class="brand-section" id="about">
-        <div class="container">
-            <div class="brand-grid">
-                <div class="brand-text">
-                    <h2>CRIME SCENE</h2>
-                    <p>
-                        Crime Scene is a bold streetwear brand built on attitude, emotion, and presence. 
-                        Every piece represents a moment frozen in time—raw, expressive, and unforgettable. 
-                        Designed for people who move with confidence and leave an impression wherever they go.
-                    </p>
-                    <p>
-                        Crime Scene turns everyday style into a statement. 
-                        This isn't fashion for blending in—it's evidence of who you are.
-                    </p>
-                </div>
-                <div class="brand-image">
-                    <img src="assests/images/IMG-20260309-WA0000(1).jpg" alt="Brand Statement Image">
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Police tape strip -->
+    <div class="hero-tape">
+      <div class="hero-tape-text">
+        DO NOT CROSS · CRIME SCENE · LEAVE EVIDENCE · DO NOT CROSS · CRIME SCENE · LEAVE EVIDENCE · DO NOT CROSS · CRIME SCENE · LEAVE EVIDENCE · DO NOT CROSS · CRIME SCENE · LEAVE EVIDENCE ·&nbsp;
+      </div>
+    </div>
 
-    <!-- LATEST NEWS / COMING SOON -->
-    <section class="news-banner">
-        <div class="news-card">
-            <h2>LATEST EVIDENCE: VACATION COMING SOON</h2>
-            <img src="assests/images/IMG-20260506-WA0001.jpg" alt="Upcoming Drop">
-            <p class="announcement">LIMITED STOCK • NO RESTOCKS • STAY READY</p>
-        </div>
-    </section>
+    <!-- Case number -->
+    <div class="hero-case">
+      <p>CASE FILE</p>
+      <strong>#CS-2026-001</strong>
+      <p>CLASSIFICATION: DRIP</p>
+      <p>STATUS: ACTIVE</p>
+    </div>
 
-    <!-- EVIDENCE GALLERY (COLLAGES) -->
-    <section class="lookbook" id="evidence">
-        <div class="section-title">
-            <h2>THE EVIDENCE</h2>
-            <p>They tried to copy the style... but the evidence speaks.</p>
-        </div>
+    <div class="hero-content">
+      <div class="hero-tag">2026 STREETWEAR DROP</div>
+      <h1 class="hero-title">
+        LEAVE
+        <em>Evidence</em>
+      </h1>
+      <p class="hero-sub">Too clean to be innocent.<br>Too real to be copied.</p>
+      <a href="#evidence" class="hero-cta">View Collection</a>
+    </div>
+  </header>
 
-        <!-- Collage Group 1 -->
-        <div class="collage">
-            <div class="top-frame">
-                <img src="assests/images/1778477533092.jpg" alt="Evidence 1">
-            </div>
-            <div class="bottom-grid three-col">
-                <img src="assests/images/1778477539601.jpg" alt="Evidence 2">
-                <img src="assests/images/1778477544569.jpg" alt="Evidence 3">
-                <img src="assests/images/1778477554953.jpg" alt="Evidence 4">
-            </div>
-        </div>
+  <!-- MARQUEE -->
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-track">
+      <span>STREETWEAR</span><span>·</span>
+      <span>LEAVE EVIDENCE</span><span>·</span>
+      <span>CRIME SCENE</span><span>·</span>
+      <span>2026 DROP</span><span>·</span>
+      <span>STAY READY</span><span>·</span>
+      <span>NO RESTOCKS</span><span>·</span>
+      <span>STREETWEAR</span><span>·</span>
+      <span>·</span>
+      <span>LEAVE EVIDENCE</span><span>·</span>
+      <span>CRIME SCENE</span><span>·</span>
+      <span>2026 DROP</span><span>·</span>
+      <span>STAY READY</span><span>·</span>
+      <span>NO RESTOCKS</span><span>·</span>
+    </div>
+  </div>
 
-        <div class="mid-quote">
-            <p>Crime Scene isn't just clothing; it's proof that real drip can't stay unnoticed.</p>
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-image-col">
+      <img src="assests/images/IMG-20260309-WA0000(1).jpg" alt="Brand Statement">
+      <div class="stamp">EXHIBIT A</div>
+    </div>
+    <div class="about-text-col">
+      <div class="section-label">Our Story</div>
+      <h2 class="about-title fade-up">
+        BUILT ON<br><em>Attitude</em>
+      </h2>
+      <div class="about-body fade-up">
+        <p>Crime Scene is a bold streetwear brand built on attitude, emotion, and presence. Every piece represents a moment frozen in time — raw, expressive, and unforgettable.</p>
+        <p>Designed for people who move with confidence and leave an impression wherever they go. This isn't fashion for blending in — it's evidence of who you are.</p>
+      </div>
+      <div class="about-divider"></div>
+      <div class="about-stat fade-up">
+        <div class="stat-item">
+          <div class="stat-num">2026</div>
+          <div class="stat-label">Founded</div>
         </div>
-
-        <!-- Collage Group 2 -->
-        <div class="collage">
-            <div class="top-frame">
-                <img src="assests/images/1778479304655.jpg" alt="Evidence 5">
-            </div>
-            <div class="bottom-grid two-col">
-                <img src="assests/images/1778479308749.jpg" alt="Evidence 6">
-                <img src="assests/images/1778479311644.jpg" alt="Evidence 7">
-            </div>
+        <div class="stat-item">
+          <div class="stat-num">01</div>
+          <div class="stat-label">Active Drop</div>
         </div>
-
-        <!-- Collage Group 3 -->
-        <div class="collage">
-            <div class="top-frame">
-                <img src="assests/images/1778479903711.jpg" alt="Evidence 8">
-            </div>
-            <div class="bottom-grid three-col">
-                <img src="assests/images/1778479919287.jpg" alt="Evidence 9">
-                <img src="assests/images/1778479932686.jpg" alt="Evidence 10">
-                <img src="assests/images/1778479942948.jpg" alt="Evidence 11">
-            </div>
+        <div class="stat-item">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Impressions Left</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- QUOTE SECTION -->
-    <section class="final-statement">
-        <h2>“THE STREETS ALREADY KNOW WHO DID IT.”</h2>
-        <p>Where the drip is criminal and the streets are watching.</p>
-    </section>
+  <!-- COMING SOON / DROP -->
+  <section class="drop-banner">
+    <div class="drop-inner">
+      <div class="drop-text">
+        <div class="drop-badge">Incoming Drop</div>
+        <h2 class="drop-title fade-up">
+          VACATION<br><span>INCOMING</span>
+        </h2>
+        <p class="drop-desc fade-up">
+          The latest evidence is almost ready. Limited stock. No restocks. When it's gone — it's gone. Stay ready.
+        </p>
+        <div class="drop-notice">Limited Stock · No Restocks · Stay Ready</div>
+      </div>
+      <div class="drop-image">
+        <img src="assests/images/IMG-20260506-WA0001.jpg" alt="Upcoming Drop">
+      </div>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer id="contact">
-        <div class="footer-content">
-            <h2>CRIME SCENE</h2>
-            <p>LEAVE EVIDENCE.</p>
-            <div class="socials">
-                <a href="#">INSTAGRAM</a>
-                <a href="#">TIKTOK</a>
-                <a href="#">YOUTUBE</a>
-            </div>
-            <p class="copyright">© 2026 CRIME SCENE — ALL RIGHTS RESERVED.</p>
-        </div>
-    </footer>
+  <!-- EVIDENCE GALLERY -->
+  <section class="evidence" id="evidence">
+    <div class="evidence-header">
+      <h2 class="evidence-title fade-up">THE<br>EVIDENCE</h2>
+      <p class="evidence-sub fade-up">They tried to copy the style…<br>but the evidence speaks for itself.</p>
+    </div>
+
+    <div class="evidence-grid">
+      <div class="ev-item">
+        <img src="assests/images/1778477533092.jpg" alt="Evidence 01">
+        <span class="ev-num">01</span>
+      </div>
+      <div class="ev-item">
+        <img src="assests/images/1778479304655.jpg" alt="Evidence 02">
+        <span class="ev-num">02</span>
+      </div>
+      <div class="ev-item">
+        <img src="assests/images/1778477539601.jpg" alt="Evidence 03">
+        <span class="ev-num">03</span>
+      </div>
+      <div class="ev-item">
+        <img src="assests/images/1778477544569.jpg" alt="Evidence 04">
+        <span class="ev-num">04</span>
+      </div>
+      <div class="ev-item">
+        <img src="assests/images/1778477554953.jpg" alt="Evidence 05">
+        <span class="ev-num">05</span>
+      </div>
+      <div class="ev-item">
+        <img src="assests/images/1778479308749.jpg" alt="Evidence 06">
+        <span class="ev-num">06</span>
+      </div>
+      <div class="ev-item">
+        <img src="assests/images/1778479311644.jpg" alt="Evidence 07">
+        <span class="ev-num">07</span>
+      </div>
+      <div class="ev-item">
+        <img src="assests/images/1778479903711.jpg" alt="Evidence 08">
+        <span class="ev-num">08</span>
+      </div>
+      <div class="ev-item">
+        <img src="assests/images/1778479919287.jpg" alt="Evidence 09">
+        <span class="ev-num">09</span>
+      </div>
+      <div class="ev-item">
+        <img src="assests/images/1778479932686.jpg" alt="Evidence 10">
+        <span class="ev-num">10</span>
+      </div>
+      <div class="ev-item">
+        <img src="assests/images/1778479942948.jpg" alt="Evidence 11">
+        <span class="ev-num">11</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <div class="pull-quote-text">
+      Crime Scene isn't just clothing — it's proof that real drip can't stay unnoticed.
+    </div>
+  </div>
+
+  <!-- FINAL STATEMENT -->
+  <section class="final">
+    <h2 class="final-title fade-up">
+      THE STREETS ALREADY<br>KNOW <span>WHO DID IT.</span>
+    </h2>
+    <p class="final-sub fade-up">Where the drip is criminal and the streets are watching.</p>
+    <a href="#evidence" class="hero-cta fade-up">Browse the Evidence</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">CRIME<span>.</span>SCENE</div>
+        <div class="footer-tagline">Leave Evidence.</div>
+      </div>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 CRIME SCENE — ALL RIGHTS RESERVED.</p>
+      <div class="footer-red-line"></div>
+      <p class="footer-copy">CASE CLOSED.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-up on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Duplicate marquee content for seamless loop
+    document.querySelectorAll('.marquee-track, .hero-tape-text').forEach(el => {
+      el.innerHTML += el.innerHTML;
+    });
+  </script>
 
 </body>
 </html>
