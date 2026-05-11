@@ -5,295 +5,460 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 /* =========================
    BODY
 ========================= */
 body{
-    background: #ffffff;
-    color: #111111;
-    font-family: Arial, Helvetica, sans-serif;
+    background: #050505;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
-}
-
-/* =========================
-   HEADER
-========================= */
-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-/* =========================
-   LOGO
-========================= */
-.logo{
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    display: block;
-    filter: contrast(120%);
-}
-
-/* =========================
-   NAVBAR
-========================= */
-.navbar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    padding: 20px;
-    flex-wrap: wrap;
-}
-
-/* NAV BUTTONS */
-.navbar button{
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    background: gold;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-/* BUTTON HOVER */
-.navbar button:hover{
-    background: #111111;
-    color: gold;
-    transform: scale(1.05);
-}
-
-/* SEARCH INPUT */
-.navbar input{
-    padding: 12px 20px;
-    border: 2px solid gold;
-    border-radius: 6px;
-    outline: none;
-    font-size: 16px;
-    width: 250px;
 }
 
 /* =========================
    HERO SECTION
 ========================= */
 .hero{
+    position: relative;
+    min-height: 100vh;
+    background-image: url('../assests/images/IMG-20260506-WA0001.jpg');
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 50px 20px;
+    justify-content: space-between;
 }
 
-/* HERO TITLE */
-.hero h1{
-    font-size: 65px;
-    color: rgba(216, 184, 4, 0.89);
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    margin-bottom: 10px;
-    font-family: 'Special Elite', cursive;
-}
-
-/* TAGLINE */
-.tagline{
-    font-size: 28px;
-    color: #222222;
-    margin-bottom: 30px;
-}
-
-/* DESCRIPTION */
-.description{
-    max-width: 900px;
-    font-size: 20px;
-    line-height: 1.8;
-}
-
-/* =========================
-   GENERAL TEXT
-========================= */
-p{
-    font-size: 20px;
-    line-height: 1.8;
-    text-align: center;
-}
-
-/* =========================
-   FEATURE IMAGE
-========================= */
-.feature-image{
-    padding: 20px;
-}
-
-/* =========================
-   ALL IMAGES
-========================= */
-img{
+/* OVERLAY */
+.overlay{
+    position: absolute;
     width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 20px;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+    flex-wrap: wrap;
+}
+
+/* LOGO */
+.logo{
+    width: 160px;
+}
+
+/* NAV LINKS */
+.nav-links{
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 2px;
     transition: 0.3s ease;
 }
 
-/* IMAGE HOVER */
-img:hover{
-    transform: scale(1.01);
+.nav-links a:hover{
+    color: gold;
+}
+
+/* SEARCH */
+.search-box input{
+    padding: 10px 15px;
+    border: 1px solid gold;
+    background: transparent;
+    color: white;
+    outline: none;
 }
 
 /* =========================
-   NEWS SECTION
+   HERO CONTENT
 ========================= */
-.news{
-    background: #111111;
-    color: gold;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-/* NEWS TITLE */
-.news h2{
-    font-size: 35px;
-    letter-spacing: 4px;
-    margin-bottom: 40px;
-}
-
-/* NEWS CONTAINER */
-.news-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* NEWS CARD */
-.news-card{
-    width: 100%;
+.hero-content{
+    position: relative;
+    z-index: 2;
+    padding: 80px 60px;
     max-width: 700px;
 }
 
-/* NEWS CARD TITLE */
-.news-card h3{
+.small-text{
+    color: gold;
+    letter-spacing: 4px;
     margin-bottom: 20px;
-    font-size: 24px;
 }
 
-/* NEWS IMAGE */
-.news-image{
+.hero-content h1{
+    font-size: 110px;
+    line-height: 0.9;
+    margin-bottom: 30px;
+    font-family: 'Special Elite', cursive;
+}
+
+.hero-description{
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+/* HERO BUTTONS */
+.hero-buttons{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.shop-btn,
+.lookbook-btn{
+    padding: 15px 35px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+.shop-btn{
+    background: gold;
+    color: black;
+}
+
+.lookbook-btn{
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.shop-btn:hover,
+.lookbook-btn:hover{
+    transform: translateY(-5px);
+}
+
+/* =========================
+   BRAND SECTION
+========================= */
+.brand-section{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 40px;
+    padding: 100px 60px;
+    align-items: center;
+}
+
+.brand-text h2{
+    font-size: 60px;
+    color: gold;
+    margin-bottom: 30px;
+    font-family: 'Special Elite', cursive;
+}
+
+.brand-text p{
+    line-height: 2;
+    color: #cccccc;
+}
+
+.brand-image img{
     width: 100%;
     border-radius: 15px;
 }
 
 /* =========================
-   TEXT SECTION
+   DROP BANNER
 ========================= */
-.text-section{
-    padding: 40px 20px;
+.drop-banner{
+    text-align: center;
+    padding: 80px 20px;
+    background: #0f0f0f;
+}
+
+.drop-banner h2{
+    font-size: 55px;
+    color: gold;
+    margin-bottom: 20px;
+}
+
+.drop-banner p{
+    letter-spacing: 3px;
+    color: #999999;
 }
 
 /* =========================
-   COLLAGE
+   COLLECTION SECTION
 ========================= */
-.collage{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 10px;
+.collection-section{
+    padding: 100px 60px;
 }
 
-/* TOP IMAGE */
-.top img{
+.section-title{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2{
+    font-size: 60px;
+    color: gold;
+    font-family: 'Special Elite', cursive;
+}
+
+/* PRODUCT GRID */
+.product-grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+}
+
+/* PRODUCT CARD */
+.product-card{
+    background: #111111;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.product-card:hover{
+    transform: translateY(-10px);
+}
+
+.product-image img{
     width: 100%;
+    height: 400px;
     object-fit: cover;
-    border-radius: 10px;
+}
+
+.product-info{
+    padding: 20px;
+}
+
+.product-info h3{
+    margin-bottom: 10px;
+}
+
+.product-info p{
+    color: gold;
+    margin-bottom: 10px;
+}
+
+.product-info span{
+    font-size: 12px;
+    color: #999999;
+    letter-spacing: 2px;
 }
 
 /* =========================
-   3 IMAGE GRID
+   LOOKBOOK SECTION
 ========================= */
-.bottom-three{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+.lookbook{
+    padding: 100px 60px;
 }
 
-/* =========================
-   2 IMAGE GRID
-========================= */
-.bottom-two{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+.lookbook-title{
+    text-align: center;
+    margin-bottom: 60px;
 }
 
-/* BOTTOM IMAGES */
-.bottom-three img,
-.bottom-two img{
+.lookbook-title h2{
+    font-size: 60px;
+    color: gold;
+    font-family: 'Special Elite', cursive;
+}
+
+.lookbook-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.big-image img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
+}
+
+.small-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.small-grid img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* =========================
+   QUOTE SECTION
+========================= */
+.quote-section{
+    padding: 120px 40px;
+    text-align: center;
+}
+
+.quote-section h2{
+    font-size: 60px;
+    line-height: 1.5;
+    color: gold;
+    font-family: 'Special Elite', cursive;
+}
+
+/* =========================
+   FINAL GRID
+========================= */
+.final-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    padding: 0 60px 100px;
+}
+
+.final-grid img{
+    width: 100%;
+    border-radius: 12px;
 }
 
 /* =========================
    FOOTER
 ========================= */
 footer{
-    background: #111111;
-    color: gold;
+    background: #0a0a0a;
+    padding: 80px 20px;
     text-align: center;
-    padding: 30px 20px;
-    margin-top: 40px;
+    border-top: 1px solid #222222;
+}
+
+footer h2{
+    font-size: 50px;
+    color: gold;
+    margin-bottom: 20px;
+    font-family: 'Special Elite', cursive;
+}
+
+footer p{
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+/* SOCIALS */
+.socials{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.socials a{
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.socials a:hover{
+    color: gold;
+}
+
+.copyright{
+    color: #777777;
+    font-size: 14px;
+}
+
+/* =========================
+   ALL IMAGES
+========================= */
+img{
+    transition: 0.4s ease;
+}
+
+img:hover{
+    transform: scale(1.02);
 }
 
 /* =========================
    MOBILE RESPONSIVE
 ========================= */
+@media (max-width: 992px){
+
+    .hero-content h1{
+        font-size: 70px;
+    }
+
+    .brand-section{
+        grid-template-columns: 1fr;
+    }
+
+    .product-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .lookbook-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .final-grid{
+        grid-template-columns: 1fr;
+    }
+
+}
+
 @media (max-width: 768px){
 
-    /* HERO TITLE */
-    .hero h1{
-        font-size: 42px;
-    }
-
-    /* TAGLINE */
-    .tagline{
-        font-size: 22px;
-    }
-
-    /* DESCRIPTION */
-    .description{
-        font-size: 18px;
-    }
-
-    /* GENERAL TEXT */
-    p{
-        font-size: 18px;
-    }
-
-    /* NAVBAR STACK */
     .navbar{
         flex-direction: column;
+        gap: 20px;
+        padding: 20px;
     }
 
-    /* SEARCH BAR */
-    .navbar input{
-        width: 100%;
-        max-width: 300px;
+    .nav-links{
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    /* COLLAGE STACK */
-    .bottom-three{
+    .hero-content{
+        padding: 60px 20px;
+    }
+
+    .hero-content h1{
+        font-size: 55px;
+    }
+
+    .brand-section,
+    .collection-section,
+    .lookbook{
+        padding: 80px 20px;
+    }
+
+    .product-grid{
         grid-template-columns: 1fr;
     }
 
-    .bottom-two{
+    .drop-banner h2,
+    .section-title h2,
+    .lookbook-title h2,
+    .quote-section h2{
+        font-size: 38px;
+    }
+
+    .small-grid{
         grid-template-columns: 1fr;
     }
+
+    .final-grid{
+        padding: 0 20px 80px;
+    }
+
 }
