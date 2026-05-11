@@ -1,0 +1,133 @@
+body{
+    background: white;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo{
+    width: 100%;
+    height: auto;
+    filter: contrast(120%);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+main h1{
+    font-size: 50px;
+    color: rgba(216, 184, 4, 0.89);
+    text-transform: uppercase;
+    margin-bottom: 1px;
+}
+
+main p{
+    font-size: 30px;
+
+}
+
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+}
+
+.navbar button{
+    padding: 10px 20px;
+    border: none;
+    background: gold;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.navbar input{
+    padding: 10px 20px;
+    border-color: gold;   
+}
+
+img{
+    width: 100%;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3;
+}
+
+.news{
+    padding: 20px;
+    background-image: #111;
+    color: gold;
+    text-align: center;
+}
+
+.news h2{
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+.news-container{
+    display: flex;
+    justify-content: center;
+}
+
+.news img{
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.collage{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 2px;
+}
+
+.top1{
+    width: 100%;
+}
+
+.top img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5pxpx;
+}
+
+.bottom1{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+.bottom img{
+    width: 100%;
+    height: auto;
+    border-radius: 5pxpx;
+    object-fit: cover;
+}
+
+.bottom2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+}
+
