@@ -1,19 +1,25 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BODY */
+/* =========================
+   BODY
+========================= */
 body{
     background: #ffffff;
-    color: #111;
+    color: #111111;
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 header{
     display: flex;
     justify-content: center;
@@ -21,20 +27,25 @@ header{
     padding: 20px;
 }
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 .logo{
     width: 100%;
     max-width: 500px;
     height: auto;
+    display: block;
     filter: contrast(120%);
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 .navbar{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
     padding: 20px;
     flex-wrap: wrap;
 }
@@ -43,54 +54,59 @@ header{
 .navbar button{
     padding: 12px 24px;
     border: none;
+    border-radius: 6px;
     background: gold;
     color: black;
+    font-size: 16px;
     font-weight: bold;
-    border-radius: 6px;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
+/* BUTTON HOVER */
 .navbar button:hover{
-    transform: scale(1.05);
-    background: #111;
+    background: #111111;
     color: gold;
+    transform: scale(1.05);
 }
 
-/* SEARCH BAR */
+/* SEARCH INPUT */
 .navbar input{
     padding: 12px 20px;
     border: 2px solid gold;
     border-radius: 6px;
     outline: none;
     font-size: 16px;
+    width: 250px;
 }
 
-/* HERO SECTION */
+/* =========================
+   HERO SECTION
+========================= */
 .hero{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 20px;
 }
 
-/* MAIN TITLE */
+/* HERO TITLE */
 .hero h1{
-    font-size: 60px;
+    font-size: 65px;
     color: rgba(216, 184, 4, 0.89);
     text-transform: uppercase;
+    letter-spacing: 5px;
     margin-bottom: 10px;
-    letter-spacing: 4px;
     font-family: 'Special Elite', cursive;
 }
 
 /* TAGLINE */
 .tagline{
     font-size: 28px;
+    color: #222222;
     margin-bottom: 30px;
-    color: #222;
 }
 
 /* DESCRIPTION */
@@ -98,27 +114,32 @@ header{
     max-width: 900px;
     font-size: 20px;
     line-height: 1.8;
-    padding: 0 20px;
 }
 
-/* GENERAL PARAGRAPHS */
+/* =========================
+   GENERAL TEXT
+========================= */
 p{
     font-size: 20px;
-    text-align: center;
     line-height: 1.8;
+    text-align: center;
 }
 
-/* FEATURE IMAGE */
+/* =========================
+   FEATURE IMAGE
+========================= */
 .feature-image{
     padding: 20px;
 }
 
-/* ALL IMAGES */
+/* =========================
+   ALL IMAGES
+========================= */
 img{
     width: 100%;
     height: auto;
-    border-radius: 20px;
     display: block;
+    border-radius: 20px;
     transition: 0.3s ease;
 }
 
@@ -127,19 +148,21 @@ img:hover{
     transform: scale(1.01);
 }
 
-/* NEWS SECTION */
+/* =========================
+   NEWS SECTION
+========================= */
 .news{
-    padding: 50px 20px;
-    background: #111;
+    background: #111111;
     color: gold;
     text-align: center;
+    padding: 50px 20px;
 }
 
 /* NEWS TITLE */
 .news h2{
-    margin-bottom: 40px;
-    letter-spacing: 4px;
     font-size: 35px;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
 }
 
 /* NEWS CONTAINER */
@@ -151,50 +174,62 @@ img:hover{
 
 /* NEWS CARD */
 .news-card{
-    max-width: 600px;
     width: 100%;
+    max-width: 700px;
+}
+
+/* NEWS CARD TITLE */
+.news-card h3{
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 
 /* NEWS IMAGE */
 .news-image{
     width: 100%;
     border-radius: 15px;
-    margin-top: 15px;
 }
 
-/* TEXT SECTIONS */
+/* =========================
+   TEXT SECTION
+========================= */
 .text-section{
     padding: 40px 20px;
 }
 
-/* COLLAGE */
+/* =========================
+   COLLAGE
+========================= */
 .collage{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
     padding: 10px;
 }
 
 /* TOP IMAGE */
 .top img{
     width: 100%;
-    height: auto;
     object-fit: cover;
     border-radius: 10px;
 }
 
-/* THREE IMAGE GRID */
+/* =========================
+   3 IMAGE GRID
+========================= */
 .bottom-three{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 10px;
 }
 
-/* TWO IMAGE GRID */
+/* =========================
+   2 IMAGE GRID
+========================= */
 .bottom-two{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 10px;
 }
 
 /* BOTTOM IMAGES */
@@ -206,48 +241,59 @@ img:hover{
     border-radius: 10px;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 footer{
-    background: #111;
+    background: #111111;
     color: gold;
     text-align: center;
-    padding: 25px;
+    padding: 30px 20px;
     margin-top: 40px;
 }
 
-/* MOBILE RESPONSIVE */
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
 @media (max-width: 768px){
 
+    /* HERO TITLE */
     .hero h1{
-        font-size: 40px;
+        font-size: 42px;
     }
 
+    /* TAGLINE */
     .tagline{
         font-size: 22px;
     }
 
+    /* DESCRIPTION */
     .description{
         font-size: 18px;
     }
 
+    /* GENERAL TEXT */
     p{
         font-size: 18px;
     }
 
+    /* NAVBAR STACK */
+    .navbar{
+        flex-direction: column;
+    }
+
+    /* SEARCH BAR */
+    .navbar input{
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* COLLAGE STACK */
     .bottom-three{
         grid-template-columns: 1fr;
     }
 
     .bottom-two{
         grid-template-columns: 1fr;
-    }
-
-    .navbar{
-        flex-direction: column;
-    }
-
-    .navbar input{
-        width: 100%;
-        max-width: 300px;
     }
 }
