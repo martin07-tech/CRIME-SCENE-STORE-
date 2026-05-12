@@ -446,31 +446,51 @@ section{
 
 @media(max-width: 900px){
 
-    .about{
-        grid-template-columns: 1fr;
-    }
+.header{
+padding: 20px 5%;
+flex-direction: column;
+gap: 20px;
+}
 
-    .hero-content h1{
-        font-size: 55px;
-    }
+.navbar{
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
+}
 
-    .section-title h2,
-    .gallery-text h2,
-    .about-text h2,
-    .cta-section h2{
-        font-size: 35px;
-    }
+.hero{
+background-attachment: scroll;
+padding-top: 180px;
+}
 
-    .bottom-row.three{
-        grid-template-columns: 1fr;
-    }
+.hero-content h1{
+font-size: clamp(3rem, 12vw, 5rem);
+letter-spacing: 3px;
+}
 
-    .bottom-row.two{
-        grid-template-columns: 1fr;
-    }
+.hero-content p{
+font-size: 16px;
+letter-spacing: 2px;
+}
 
-    .navbar{
-        display: none;
-    }
+.about{
+grid-template-columns: 1fr;
+}
+
+.bottom-row.three,
+.bottom-row.two{
+grid-template-columns: 1fr;
+}
+
+section{
+padding: 70px 6%;
+}
+
+.cta-section h2,
+.about-text h2,
+.gallery-text h2,
+.section-title h2{
+font-size: clamp(2rem, 7vw, 3rem);
+}
 
 }
