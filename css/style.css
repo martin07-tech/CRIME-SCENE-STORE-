@@ -1,0 +1,496 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body{
+    background: #0a0a0a;
+    color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-track{
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgba(216, 184, 4, 0.8);
+    border-radius: 20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo{
+    width: 140px;
+    border-radius: 10px;
+    filter: contrast(120%);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.navbar a:hover{
+    color: rgba(216, 184, 4, 0.9);
+}
+
+.navbar input{
+    padding: 10px 15px;
+    border: 1px solid rgba(216, 184, 4, 0.5);
+    background: transparent;
+    color: white;
+    outline: none;
+    border-radius: 30px;
+}
+
+.navbar input::placeholder{
+    color: rgba(255,255,255,0.5);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 120px 10% 80px;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.7),
+    rgba(0,0,0,0.8)),
+    url("../assets/images/1778479903711.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    position: relative;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content h1{
+    font-size: 90px;
+    font-family: 'Special Elite', cursive;
+    color: rgba(216, 184, 4, 0.9);
+
+    letter-spacing: 8px;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+
+    text-shadow: 0 0 20px rgba(216,184,4,0.3);
+}
+
+.hero-content p{
+    font-size: 22px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+
+    color: rgba(255,255,255,0.8);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.cta-btn{
+    display: inline-block;
+
+    padding: 15px 40px;
+
+    background: rgba(216,184,4,0.9);
+    color: black;
+
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    border-radius: 40px;
+
+    transition: 0.3s ease;
+}
+
+.cta-btn:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(216,184,4,0.3);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding: 100px 10%;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text h2{
+    font-size: 50px;
+    margin-bottom: 30px;
+
+    color: rgba(216,184,4,0.9);
+
+    font-family: 'Special Elite', cursive;
+}
+
+.about-text p{
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+
+    color: rgba(255,255,255,0.75);
+}
+
+.quote{
+    color: rgba(216,184,4,0.9);
+    font-style: italic;
+    font-size: 18px;
+}
+
+.about-image img{
+    width: 100%;
+    border-radius: 20px;
+
+    transition: 0.4s ease;
+}
+
+.about-image img:hover{
+    transform: scale(1.02);
+}
+
+/* =========================
+   NEWS SECTION
+========================= */
+
+.news-section{
+    background: #111;
+}
+
+.section-title{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2{
+    font-size: 50px;
+    color: rgba(216,184,4,0.9);
+
+    font-family: 'Special Elite', cursive;
+    letter-spacing: 4px;
+}
+
+.news-container{
+    display: flex;
+    justify-content: center;
+}
+
+.news-card{
+    max-width: 900px;
+
+    background: #181818;
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+
+    transition: 0.4s ease;
+}
+
+.news-card:hover{
+    transform: translateY(-8px);
+}
+
+.news-card img{
+    width: 100%;
+    display: block;
+}
+
+.news-info{
+    padding: 30px;
+}
+
+.news-info h3{
+    font-size: 30px;
+    margin-bottom: 15px;
+
+    color: rgba(216,184,4,0.9);
+}
+
+.news-info p{
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-section{
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.gallery-text{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.gallery-text h2{
+    font-size: 45px;
+
+    margin-bottom: 20px;
+
+    color: rgba(216,184,4,0.9);
+
+    font-family: 'Special Elite', cursive;
+}
+
+.gallery-text p{
+    max-width: 700px;
+    margin: auto;
+
+    line-height: 1.9;
+    color: rgba(255,255,255,0.7);
+}
+
+/* =========================
+   COLLAGE
+========================= */
+
+.collage{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.top-image img{
+    width: 100%;
+    border-radius: 15px;
+
+    transition: 0.4s ease;
+}
+
+.bottom-row{
+    display: grid;
+    gap: 10px;
+}
+
+.bottom-row.three{
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.bottom-row.two{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.bottom-row img{
+    width: 100%;
+    border-radius: 15px;
+
+    transition: 0.4s ease;
+}
+
+.top-image img:hover,
+.bottom-row img:hover{
+    transform: scale(1.02);
+    filter: brightness(110%);
+}
+
+/* =========================
+   CTA SECTION
+========================= */
+
+.cta-section{
+    text-align: center;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.85),
+    rgba(0,0,0,0.85)),
+    url("../assets/images/1778477533092.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.cta-section h2{
+    font-size: 60px;
+
+    margin-bottom: 20px;
+
+    color: rgba(216,184,4,0.9);
+
+    font-family: 'Special Elite', cursive;
+}
+
+.cta-section p{
+    margin-bottom: 40px;
+
+    color: rgba(255,255,255,0.7);
+
+    letter-spacing: 2px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    padding: 50px 10%;
+    background: black;
+    text-align: center;
+}
+
+.socials{
+    margin-bottom: 20px;
+}
+
+.socials a{
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+
+    margin: 0 15px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+.socials a:hover{
+    color: rgba(216,184,4,0.9);
+}
+
+.footer p{
+    color: rgba(255,255,255,0.4);
+    font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 900px){
+
+.header{
+padding: 20px 5%;
+flex-direction: column;
+gap: 20px;
+}
+
+.navbar{
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
+}
+
+.hero{
+background-attachment: scroll;
+padding-top: 180px;
+}
+
+.hero-content h1{
+font-size: clamp(3rem, 12vw, 5rem);
+letter-spacing: 3px;
+}
+
+.hero-content p{
+font-size: 16px;
+letter-spacing: 2px;
+}
+
+.about{
+grid-template-columns: 1fr;
+}
+
+.bottom-row.three,
+.bottom-row.two{
+grid-template-columns: 1fr;
+}
+
+section{
+padding: 70px 6%;
+}
+
+.cta-section h2,
+.about-text h2,
+.gallery-text h2,
+.section-title h2{
+font-size: clamp(2rem, 7vw, 3rem);
+}
+
+}
