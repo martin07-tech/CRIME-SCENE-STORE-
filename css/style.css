@@ -1,74 +1,40 @@
-/* =========================
-   RESET
-========================= */
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* =========================
-   BODY
-========================= */
-
 body{
     background: #0a0a0a;
-    color: #f5f5f5;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
 }
 
-/* =========================
-   SCROLLBAR
-========================= */
-
-::-webkit-scrollbar{
-    width: 8px;
-}
-
-::-webkit-scrollbar-track{
-    background: #111;
-}
-
-::-webkit-scrollbar-thumb{
-    background: rgba(216, 184, 4, 0.8);
-    border-radius: 20px;
-}
-
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .header{
     width: 100%;
     padding: 20px 8%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     position: fixed;
     top: 0;
     z-index: 1000;
 
     background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
-
-    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-
-/* =========================
-   LOGO
-========================= */
 
 .logo{
-    width: 140px;
+    width: 130px;
     border-radius: 10px;
-    filter: contrast(120%);
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAVBAR */
 
 .navbar{
     display: flex;
@@ -79,23 +45,28 @@ body{
 .navbar a{
     text-decoration: none;
     color: white;
+
     font-size: 13px;
     letter-spacing: 2px;
+
     text-transform: uppercase;
-    transition: 0.3s ease;
-    position: relative;
+
+    transition: 0.3s;
 }
 
 .navbar a:hover{
-    color: rgba(216, 184, 4, 0.9);
+    color: gold;
 }
 
 .navbar input{
     padding: 10px 15px;
-    border: 1px solid rgba(216, 184, 4, 0.5);
+
+    border: 1px solid gold;
+
     background: transparent;
+
     color: white;
-    outline: none;
+
     border-radius: 30px;
 }
 
@@ -103,9 +74,7 @@ body{
     color: rgba(255,255,255,0.5);
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     min-height: 100vh;
@@ -113,9 +82,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
     text-align: center;
 
-    padding: 120px 10% 80px;
+    padding: 120px 10%;
 
     background:
     linear-gradient(rgba(0,0,0,0.7),
@@ -124,119 +94,97 @@ body{
 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-
-    position: relative;
 }
-
-/* =========================
-   HERO CONTENT
-========================= */
 
 .hero-content h1{
     font-size: 90px;
     font-family: 'Special Elite', cursive;
-    color: rgba(216, 184, 4, 0.9);
+
+    color: gold;
 
     letter-spacing: 8px;
-    text-transform: uppercase;
 
     margin-bottom: 20px;
-
-    text-shadow: 0 0 20px rgba(216,184,4,0.3);
 }
 
 .hero-content p{
-    font-size: 22px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+    font-size: 20px;
+
+    letter-spacing: 3px;
+
     margin-bottom: 40px;
 
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.7);
 }
 
-/* =========================
-   BUTTON
-========================= */
+/* BUTTON */
 
 .cta-btn{
     display: inline-block;
 
     padding: 15px 40px;
 
-    background: rgba(216,184,4,0.9);
+    background: gold;
     color: black;
 
     text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 2px;
 
     border-radius: 40px;
 
-    transition: 0.3s ease;
+    font-weight: bold;
+
+    transition: 0.3s;
 }
 
 .cta-btn:hover{
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(216,184,4,0.3);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 section{
     padding: 100px 10%;
 }
 
-/* =========================
-   ABOUT
-========================= */
+/* ABOUT */
 
 .about{
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     gap: 60px;
     align-items: center;
 }
 
 .about-text h2{
     font-size: 50px;
+
     margin-bottom: 30px;
 
-    color: rgba(216,184,4,0.9);
+    color: gold;
 
     font-family: 'Special Elite', cursive;
 }
 
 .about-text p{
-    font-size: 16px;
     line-height: 1.9;
+
     margin-bottom: 20px;
 
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.7);
 }
 
 .quote{
-    color: rgba(216,184,4,0.9);
+    color: gold;
     font-style: italic;
-    font-size: 18px;
 }
 
 .about-image img{
     width: 100%;
     border-radius: 20px;
-
-    transition: 0.4s ease;
 }
 
-.about-image img:hover{
-    transform: scale(1.02);
-}
-
-/* =========================
-   NEWS SECTION
-========================= */
+/* NEWS */
 
 .news-section{
     background: #111;
@@ -244,42 +192,27 @@ section{
 
 .section-title{
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .section-title h2{
     font-size: 50px;
-    color: rgba(216,184,4,0.9);
+
+    color: gold;
 
     font-family: 'Special Elite', cursive;
-    letter-spacing: 4px;
-}
-
-.news-container{
-    display: flex;
-    justify-content: center;
 }
 
 .news-card{
-    max-width: 900px;
-
     background: #181818;
+
     border-radius: 20px;
 
     overflow: hidden;
-
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-
-    transition: 0.4s ease;
-}
-
-.news-card:hover{
-    transform: translateY(-8px);
 }
 
 .news-card img{
     width: 100%;
-    display: block;
 }
 
 .news-info{
@@ -287,20 +220,11 @@ section{
 }
 
 .news-info h3{
-    font-size: 30px;
     margin-bottom: 15px;
-
-    color: rgba(216,184,4,0.9);
+    color: gold;
 }
 
-.news-info p{
-    color: rgba(255,255,255,0.7);
-    line-height: 1.8;
-}
-
-/* =========================
-   GALLERY
-========================= */
+/* GALLERY */
 
 .gallery-section{
     border-top: 1px solid rgba(255,255,255,0.05);
@@ -316,7 +240,7 @@ section{
 
     margin-bottom: 20px;
 
-    color: rgba(216,184,4,0.9);
+    color: gold;
 
     font-family: 'Special Elite', cursive;
 }
@@ -326,12 +250,9 @@ section{
     margin: auto;
 
     line-height: 1.9;
+
     color: rgba(255,255,255,0.7);
 }
-
-/* =========================
-   COLLAGE
-========================= */
 
 .collage{
     display: flex;
@@ -342,8 +263,6 @@ section{
 .top-image img{
     width: 100%;
     border-radius: 15px;
-
-    transition: 0.4s ease;
 }
 
 .bottom-row{
@@ -352,29 +271,15 @@ section{
 }
 
 .bottom-row.three{
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.bottom-row.two{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3,1fr);
 }
 
 .bottom-row img{
     width: 100%;
     border-radius: 15px;
-
-    transition: 0.4s ease;
 }
 
-.top-image img:hover,
-.bottom-row img:hover{
-    transform: scale(1.02);
-    filter: brightness(110%);
-}
-
-/* =========================
-   CTA SECTION
-========================= */
+/* CTA */
 
 .cta-section{
     text-align: center;
@@ -393,22 +298,16 @@ section{
 
     margin-bottom: 20px;
 
-    color: rgba(216,184,4,0.9);
+    color: gold;
 
     font-family: 'Special Elite', cursive;
 }
 
 .cta-section p{
     margin-bottom: 40px;
-
-    color: rgba(255,255,255,0.7);
-
-    letter-spacing: 2px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 .footer{
     padding: 50px 10%;
@@ -417,80 +316,56 @@ section{
 }
 
 .socials{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
     margin-bottom: 20px;
 }
 
-.socials a{
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
+.socials img{
+    width: 45px;
+    height: 45px;
 
-    margin: 0 15px;
+    object-fit: cover;
 
-    letter-spacing: 2px;
+    border-radius: 50%;
 
-    transition: 0.3s ease;
+    transition: 0.3s;
 }
 
-.socials a:hover{
-    color: rgba(216,184,4,0.9);
+.socials img:hover{
+    transform: scale(1.1);
 }
 
 .footer p{
-    color: rgba(255,255,255,0.4);
-    font-size: 14px;
+    color: rgba(255,255,255,0.5);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
 @media(max-width: 900px){
 
-.header{
-padding: 20px 5%;
-flex-direction: column;
-gap: 20px;
-}
+    .header{
+        flex-direction: column;
+        gap: 20px;
+    }
 
-.navbar{
-flex-wrap: wrap;
-justify-content: center;
-gap: 15px;
-}
+    .navbar{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-.hero{
-background-attachment: scroll;
-padding-top: 180px;
-}
+    .hero-content h1{
+        font-size: 50px;
+    }
 
-.hero-content h1{
-font-size: clamp(3rem, 12vw, 5rem);
-letter-spacing: 3px;
-}
+    .about{
+        grid-template-columns: 1fr;
+    }
 
-.hero-content p{
-font-size: 16px;
-letter-spacing: 2px;
-}
-
-.about{
-grid-template-columns: 1fr;
-}
-
-.bottom-row.three,
-.bottom-row.two{
-grid-template-columns: 1fr;
-}
-
-section{
-padding: 70px 6%;
-}
-
-.cta-section h2,
-.about-text h2,
-.gallery-text h2,
-.section-title h2{
-font-size: clamp(2rem, 7vw, 3rem);
-}
+    .bottom-row.three{
+        grid-template-columns: 1fr;
+    }
 
 }
