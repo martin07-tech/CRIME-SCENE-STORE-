@@ -531,13 +531,80 @@ body{
 }
 
 /* ===================================
-   CART ITEMS
+   CART ITEM
 =================================== */
 
-#cart-items{
+.cart-item{
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 0;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.08);
+}
+
+.cart-item h4{
+    color: gold;
+    margin-bottom: 6px;
+}
+
+.cart-item p{
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ===================================
+   REMOVE BUTTON
+=================================== */
+
+.remove-btn{
+    background: crimson !important;
+
+    color: white !important;
+
+    border: none;
+
+    width: 35px !important;
+    height: 35px !important;
+
+    border-radius: 50% !important;
+
+    cursor: pointer;
+}
+
+/* ===================================
+   CART TOTAL
+=================================== */
+
+.cart-total{
+    margin-top: 25px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: gold;
+
+    text-align: center;
+}
+
+/* ===================================
+   FADE ANIMATIONS
+=================================== */
+
+.hidden{
+    opacity: 0;
+    transform: translateY(60px);
+
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.show{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ===================================
