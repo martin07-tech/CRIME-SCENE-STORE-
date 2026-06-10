@@ -3,8 +3,6 @@
 
 <head>
 
-    <!-- META -->
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -15,13 +13,18 @@
     <meta name="description"
           content="Shop official Crime Scene streetwear. Hoodies, t-shirts, caps and exclusive drops.">
 
-    <!-- CSS -->
+    <meta name="theme-color"
+          content="#0a0a0a">
 
+    <link rel="icon"
+          type="image/png"
+          href="assets/images/favicon.png">
+
+    <!-- CSS -->
     <link rel="stylesheet"
           href="css/shop.css">
 
-    <!-- FONTS -->
-
+    <!-- Fonts -->
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
 
@@ -41,9 +44,11 @@
     <header class="store-header">
 
         <div class="logo">
+
             <a href="index.html">
                 CRIME SCENE
             </a>
+
         </div>
 
         <nav>
@@ -64,8 +69,6 @@
     <!-- HERO -->
 
     <section class="shop-hero">
-
-        <div class="shop-overlay"></div>
 
         <div class="shop-content">
 
@@ -92,60 +95,51 @@
 
         <button class="active"
                 onclick="filterProducts('all')">
-
             ALL
-
         </button>
 
         <button onclick="filterProducts('tshirt')">
-
             T-SHIRTS
-
         </button>
 
         <button onclick="filterProducts('hoodie')">
-
             HOODIES
-
         </button>
 
         <button onclick="filterProducts('cap')">
-
             CAPS
-
         </button>
 
         <button onclick="filterProducts('pants')">
-
             PANTS
-
         </button>
 
         <button onclick="filterProducts('other')">
-
             OTHER
-
         </button>
 
     </section>
 
-  <!-- FEATURED -->
+    <!-- FEATURED DROP -->
 
-<section class="featured-drop">
+    <section class="featured-drop">
 
-    <img src="assets/images/products/IMG-20260512-WA0043.jpg">
-    
-    <div class="featured-text">
+        <img
+            src="assets/images/products/IMG-20260512-WA0043.jpg"
+            alt="Crime Scene Upcoming Drop"
+            loading="lazy">
 
-        <h2>UPCOMING DROP</h2>
+        <div class="featured-text">
 
-        <p>
-            More evidence loading...
-        </p>
+            <h2>UPCOMING DROP</h2>
 
-    </div>
+            <p>
+                More evidence loading...
+            </p>
 
-</section>
+        </div>
+
+    </section>
 
     <!-- PRODUCTS -->
 
@@ -154,7 +148,7 @@
         <section class="products-container"
                  id="products-container">
 
-            <!-- PRODUCTS LOAD HERE -->
+            <!-- Products inserted by JS -->
 
         </section>
 
@@ -165,11 +159,11 @@
     <div class="cart-icon"
          onclick="toggleCart()">
 
-         🛒
+        🛒
 
-         <span id="cart-count">
-             0
-         </span>
+        <span id="cart-count">
+            0
+        </span>
 
     </div>
 
@@ -178,9 +172,20 @@
     <aside class="cart"
            id="cart">
 
-        <h2>YOUR CART</h2>
+        <div class="cart-header">
 
-        <div id="cart-items"></div>
+            <h2>YOUR CART</h2>
+
+            <button class="close-cart"
+                    onclick="toggleCart()">
+                ✕
+            </button>
+
+        </div>
+
+        <div id="cart-items">
+
+        </div>
 
         <div class="cart-footer">
 
@@ -205,7 +210,7 @@
 
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- JS -->
 
     <script src="js/product.js"></script>
 
