@@ -3,120 +3,212 @@
 
 <head>
 
+    <!-- META -->
+
     <meta charset="UTF-8">
 
-        <meta name="viewport"
-                  content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-                      <title>Crime Scene Store</title>
+    <title>CRIME SCENE | Store</title>
 
-                          <link rel="stylesheet"
-                                    href="css/shop.css">
+    <meta name="description"
+          content="Shop official Crime Scene streetwear. Hoodies, t-shirts, caps and exclusive drops.">
 
-                                    </head>
+    <!-- CSS -->
 
-                                    <body>
+    <link rel="stylesheet"
+          href="css/shop.css">
 
-                                        <!-- HERO -->
+    <!-- FONTS -->
 
-                                            <section class="shop-hero">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-                                                    <div class="shop-content">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-                                                                <h1>CRIME SCENE STORE</h1>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Montserrat:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
-                                                                            <p>
-                                                                                            Leave Evidence Everywhere
-                                                                                                        </p>
+</head>
 
-                                                                                                                </div>
+<body>
 
-                                                                                                                    </section>
+    <!-- HEADER -->
 
-                                                                                                                        <!-- NAVIGATION -->
+    <header class="store-header">
 
-                                                                                                                            <section class="shop-nav">
+        <div class="logo">
+            <a href="index.html">
+                CRIME SCENE
+            </a>
+        </div>
 
-                                                                                                                                    <button onclick="filterProducts('all')">
-                                                                                                                                                ALL
-                                                                                                                                                        </button>
+        <nav>
 
-                                                                                                                                                                <button onclick="filterProducts('tshirt')">
-                                                                                                                                                                            T-SHIRTS
-                                                                                                                                                                                    </button>
+            <a href="index.html">
+                HOME
+            </a>
 
-                                                                                                                                                                                            <button onclick="filterProducts('hoodie')">
-                                                                                                                                                                                                        HOODIES
-                                                                                                                                                                                                                </button>
+            <a href="shop.html"
+               class="active">
+                STORE
+            </a>
 
-                                                                                                                                                                                                                        <button onclick="filterProducts('cap')">
-                                                                                                                                                                                                                                    CAPS
-                                                                                                                                                                                                                                            </button>
+        </nav>
 
-                                                                                                                                                                                                                                                    <button onclick="filterProducts('pants')">
-                                                                                                                                                                                                                                                                PANTS
-                                                                                                                                                                                                                                                                        </button>
+    </header>
 
-                                                                                                                                                                                                                                                                                <button onclick="filterProducts('other')">
-                                                                                                                                                                                                                                                                                            OTHER
-                                                                                                                                                                                                                                                                                                    </button>
+    <!-- HERO -->
 
-                                                                                                                                                                                                                                                                                                        </section>
+    <section class="shop-hero">
 
-                                                                                                                                                                                                                                                                                                            <!-- FEATURED -->
+        <div class="shop-overlay"></div>
 
-                                                                                                                                                                                                                                                                                                                <section class="featured-drop">
+        <div class="shop-content">
 
-                                                                                                                                                                                                                                                                                                                        <img src="assets/images/IMG-20260506-WA0001.jpg">
+            <h1>CRIME SCENE STORE</h1>
 
-                                                                                                                                                                                                                                                                                                                                <div class="featured-text">
+            <p>
+                Leave Evidence Everywhere.
+            </p>
 
-                                                                                                                                                                                                                                                                                                                                            <h2>UPCOMING DROP</h2>
+            <a href="#products-container"
+               class="shop-btn">
 
-                                                                                                                                                                                                                                                                                                                                                        <p>
-                                                                                                                                                                                                                                                                                                                                                                        More evidence loading...
-                                                                                                                                                                                                                                                                                                                                                                                    </p>
+                SHOP NOW
 
-                                                                                                                                                                                                                                                                                                                                                                                            </div>
+            </a>
 
-                                                                                                                                                                                                                                                                                                                                                                                                </section>
+        </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                    <!-- PRODUCTS -->
+    </section>
 
-                                                                                                                                                                                                                                                                                                                                                                                                        <section class="products-container"
-                                                                                                                                                                                                                                                                                                                                                                                                                     id="products-container">
+    <!-- FILTERS -->
 
-                                                                                                                                                                                                                                                                                                                                                                                                                         </section>
+    <section class="shop-nav">
 
-                                                                                                                                                                                                                                                                                                                                                                                                                             <!-- CART -->
+        <button class="active"
+                onclick="filterProducts('all')">
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                 <div class="cart-icon"
-                                                                                                                                                                                                                                                                                                                                                                                                                                          onclick="toggleCart()">
+            ALL
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                   🛒
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            <span id="cart-count">0</span>
+        </button>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+        <button onclick="filterProducts('tshirt')">
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="cart"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                             id="cart">
+            T-SHIRTS
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <h2>YOUR CART</h2>
+        </button>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <div id="cart-items"></div>
+        <button onclick="filterProducts('hoodie')">
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <button onclick="checkoutWhatsApp()">
+            HOODIES
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ORDER ON WHATSAPP
+        </button>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </button>
+        <button onclick="filterProducts('cap')">
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </div>
+            CAPS
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <script src="js/product.js"></script>
+        </button>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </body>
+        <button onclick="filterProducts('pants')">
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+            PANTS
+
+        </button>
+
+        <button onclick="filterProducts('other')">
+
+            OTHER
+
+        </button>
+
+    </section>
+
+    <!-- FEATURED DROP -->
+
+    <section class="featured-drop">
+
+        <div class="featured-overlay"></div>
+
+        <div class="featured-content">
+
+            <h2>VACATION DROP</h2>
+
+            <p>
+                Limited release. New evidence loading soon.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- PRODUCTS -->
+
+    <main>
+
+        <section class="products-container"
+                 id="products-container">
+
+            <!-- PRODUCTS LOAD HERE -->
+
+        </section>
+
+    </main>
+
+    <!-- CART ICON -->
+
+    <div class="cart-icon"
+         onclick="toggleCart()">
+
+         🛒
+
+         <span id="cart-count">
+             0
+         </span>
+
+    </div>
+
+    <!-- CART -->
+
+    <aside class="cart"
+           id="cart">
+
+        <h2>YOUR CART</h2>
+
+        <div id="cart-items"></div>
+
+        <div class="cart-footer">
+
+            <button onclick="checkoutWhatsApp()">
+
+                ORDER ON WHATSAPP
+
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- FOOTER -->
+
+    <footer class="store-footer">
+
+        <p>
+            © 2026 CRIME SCENE.
+            ALL RIGHTS RESERVED.
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/product.js"></script>
+
+</body>
+
+</html>
