@@ -146,33 +146,69 @@ document.addEventListener("click", function(e){
 // FILTER PRODUCTS
 // ======================================
 
-function filterProducts(category){
+function filterProducts(category) {
 
-    filterButtons.forEach(btn => {
+    const container =
+    document.getElementById("products-container");
 
-        btn.classList.remove("active");
+    container.innerHTML = "";
 
-    });
+    if(category !== "all") {
 
-    event.target.classList.add("active");
+        const drop = upcomingDrops[category];
 
-    if(category === "all"){
+        container.innerHTML += `
 
-        displayProducts(products);
+        <section class="featured-drop">
 
-        return;
+            <img src="${drop.image}">
+
+            <div class="featured-text">
+
+                <h2>${drop.title}</h2>
+
+                <p>${drop.text}</p>
+
+            </div>
+
+        </section>
+
+        `;
+    }
+
+    let filteredProducts;
+
+    if(category === "all") {
+
+        filteredProducts = products;
+
+    } else {
+
+        filteredProducts =
+        products.filter(product =>
+        product.category === category);
 
     }
 
-    const filteredProducts =
-    products.filter(product =>
-        product.category === category
-    );
+    filteredProducts.forEach(product => {
 
-    displayProducts(filteredProducts);
+        container.innerHTML += `
+
+        <div class="product-card">
+
+            <img src="${product.image}">
+
+            <h3>${product.name}</h3>
+
+            <p>R${product.price}</p>
+
+        </div>
+
+        `;
+
+    });
 
 }
-
 
 // ======================================
 // UPCOMING SLIDER
