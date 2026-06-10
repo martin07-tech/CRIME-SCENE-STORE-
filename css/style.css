@@ -611,7 +611,6 @@ section{
 
     .header{
         padding: 18px 5%;
-
         flex-direction: column;
         gap: 20px;
     }
@@ -619,13 +618,11 @@ section{
     .navbar{
         flex-wrap: wrap;
         justify-content: center;
-
         gap: 16px;
     }
 
     .hero{
         background-attachment: scroll;
-
         padding-top: 200px;
     }
 
@@ -638,9 +635,24 @@ section{
         grid-template-columns: 1fr;
     }
 
-    .bottom-row.three,
+    .top-image img{
+        height: 320px;
+        object-fit: cover;
+    }
+
+    .bottom-row.three{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+
     .bottom-row.two{
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+
+    .bottom-row img{
+        height: 110px;
+        object-fit: cover;
     }
 
     .news-info{
@@ -658,6 +670,7 @@ section{
     .socials{
         flex-wrap: wrap;
     }
+
 }
 
 /* ===================================
