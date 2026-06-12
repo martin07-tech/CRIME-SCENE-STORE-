@@ -542,12 +542,10 @@ function removeFromCart(index){
 // TOGGLE CART
 // =========================
 
-function toggleCart(){
-
+window.toggleCart = function(){
+    console.log("Cart clicked");
     cart.classList.toggle("active");
-
 }
-
 
 // =========================
 // WHATSAPP CHECKOUT
