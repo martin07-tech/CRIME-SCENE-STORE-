@@ -143,7 +143,7 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
   background:
     linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.85)),
-    url('../assets/images/1778479304655.jpg') center / cover no-repeat fixed;
+    url('../assets/images/IMG-20260512-WA0041.jpg') center / cover no-repeat fixed;
 }
 
 .hero::before {
