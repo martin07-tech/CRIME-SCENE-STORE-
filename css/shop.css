@@ -118,7 +118,7 @@ img { display: block; max-width: 100%; }
   height: 2px;
   left: 0;
   bottom: -6px;
-  background: var(--white);
+  background: var(--gold);
   transition: var(--transition);
 }
 
@@ -150,7 +150,7 @@ img { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top, var(--gold-glow), transparent 60%);
+  background: radial-gradient(circle at top, var(--gold-glow), transparent 50%);
   pointer-events: none;
 }
 
