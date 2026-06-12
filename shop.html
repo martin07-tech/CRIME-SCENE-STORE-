@@ -18,63 +18,69 @@
 
 <body>
 
-  <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
-  <header class="header">
-    <div class="logo-container">
-      <a href="index.html">
-        <img src="assets/images/InShot_20260411_144224557.jpg" alt="Crime Scene Logo" class="logo">
-      </a>
-    </div>
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="shop.html" class="active">Shop</a>
-    </nav>
-  </header>
+    <!-- HERO -->
 
-  <!-- ═══════════════════════════ HERO ════════════════════════════ -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>THE STORE</h1>
-      <p>Leave Evidence Everywhere.</p>
-      <a href="#products" class="cta-btn">SHOP NOW</a>
-    </div>
-  </section>
+    <section class="shop-hero">
 
-  <!-- ═══════════════════════════ FILTERS ═════════════════════════ -->
-  <nav class="shop-filters" aria-label="Product filters">
-    <button class="filter-btn active" onclick="filterProducts('all')">ALL</button>
-    <button class="filter-btn" onclick="filterProducts('tshirt')">T-SHIRTS</button>
-    <button class="filter-btn" onclick="filterProducts('hoodie')">HOODIES</button>
-    <button class="filter-btn" onclick="filterProducts('cap')">CAPS</button>
-    <button class="filter-btn" onclick="filterProducts('pants')">PANTS</button>
-    <button class="filter-btn" onclick="filterProducts('other')">OTHER</button>
-  </nav>
+        <div class="shop-content">
 
-  <!-- ═══════════════════════════ FEATURED DROP ═══════════════════ -->
-  <section class="featured-drop">
-    <img class="featured-drop__img"
-         src="assets/images/products/IMG-20260512-WA0043.jpg"
-         alt="Crime Scene Upcoming Drop"
-         loading="lazy">
-    <div class="featured-drop__overlay">
-      <span class="featured-drop__label">DROPPING SOON</span>
-      <h2 class="featured-drop__title">UPCOMING DROP</h2>
-      <p class="featured-drop__sub">More evidence loading…</p>
-    </div>
-  </section>
+            <h1>CRIME SCENE STORE</h1>
 
-  <!-- ═══════════════════════════ PRODUCTS ════════════════════════ -->
-  <main>
-    <section class="products-section" id="products">
-      <div class="section-title">
-        <h2>THE COLLECTION</h2>
-      </div>
-      <div class="products-container">
-        <!-- Injected by product.js -->
-      </div>
+            <p>
+                Leave Evidence Everywhere
+            </p>
+
+        </div>
+
     </section>
-  </main>
 
+    <!-- NAVIGATION -->
+
+    <section class="shop-nav">
+
+        <button onclick="filterProducts('all')">
+            ALL
+        </button>
+
+        <button onclick="filterProducts('tshirt')">
+            T-SHIRTS
+        </button>
+
+        <button onclick="filterProducts('hoodie')">
+            HOODIES
+        </button>
+
+        <button onclick="filterProducts('cap')">
+            CAPS
+        </button>
+
+        <button onclick="filterProducts('pants')">
+            PANTS
+        </button>
+
+        <button onclick="filterProducts('other')">
+            OTHER
+        </button>
+
+    </section>
+
+    <!-- FEATURED -->
+
+    <section class="upcoming-products" id="upcoming">
+
+    <div class="overlay">
+        <h1>Upcoming Products</h1>
+        <p>New drops coming soon.</p>
+    </div>
+
+</section>
+
+    <!-- PRODUCTS -->
+
+    <section class="products-container"
+             id="products-container">
+
+    </section>
   <!-- ═══════════════════════════ CTA ═════════════════════════════ -->
   <section class="cta-section">
     <h2>LEAVE YOUR MARK</h2>
