@@ -11,7 +11,10 @@ window.addEventListener("load", () => {
 // =========================
 
 const products = [
-{ id: 34,  name: "Interrogation dept. Cap",                price: 220, category: "cap", sizes: ["One Size"],    image: "assets/images/products/IMG-20260612-WA0010.jpg" },
+
+{ id: 34,  name: "Interrogation dept(white). Cap",                price: 120, category: "cap", sizes: ["One Size"],    image: "assets/images/products/IMG-20260612-WA0005.jpg" },
+
+{ id: 34,  name: "Interrogation dept(black). Cap",                price: 120, category: "cap", sizes: ["One Size"],    image: "assets/images/products/IMG-20260612-WA0010.jpg" },
 
   { id: 33,  name: "Case NO:1 Tee",                price: 220, category: "tshirt", sizes: ["S","M","L","XL"],    image: "assets/images/products/IMG-20260512-WA0014.jpg" },
   { id: 32,  name: "CS Hoodie",                     price: 350, category: "hoodie", sizes: ["S","M","L","XL"],    image: "assets/images/products/IMG-20260512-WA0007.jpg" },
