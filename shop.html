@@ -1,205 +1,90 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>CRIME SCENE | Store</title>
-
-    <meta name="description"
-          content="Shop official Crime Scene streetwear. Hoodies, t-shirts, caps and exclusive drops.">
-
-    <meta name="theme-color"
-          content="#0a0a0a">
-
-    <link rel="icon"
-          type="image/png"
-          href="assets/images/favicon.png">
-
-    <!-- CSS -->
-    <link rel="stylesheet"
-          href="css/shop.css">
-
-    <!-- Fonts -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Montserrat:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRIME SCENE | Store</title>
+  <meta name="description" content="Shop official Crime Scene streetwear. Hoodies, t-shirts, caps and exclusive drops.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shop.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-
-    <header class="store-header">
-    <div class="logo">
-        <a href="index.html">CRIME SCENE</a>
-    </div>
-
-    <nav>
-        <a href="index.html">HOME</a>
-        <a href="shop.html" class="active">STORE</a>
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <a class="site-logo" href="index.html">CRIME SCENE</a>
+    <nav class="site-nav">
+      <a href="index.html">HOME</a>
+      <a href="shop.html" class="active">STORE</a>
     </nav>
-</header>
+  </header>
 
-    <!-- HERO -->
-
-    <section class="shop-hero">
-
-        <div class="shop-content">
-
-            <h1>CRIME SCENE STORE</h1>
-
-            <p>
-                Leave Evidence Everywhere.
-            </p>
-
-            <a href="#products-container"
-               class="shop-btn">
-
-                SHOP NOW
-
-            </a>
-
-        </div>
-
-    </section>
-
-    <!-- FILTERS -->
-
-    <section class="shop-nav">
-
-        <button class="active"
-                onclick="filterProducts('all')">
-            ALL
-        </button>
-
-        <button onclick="filterProducts('tshirt')">
-            T-SHIRTS
-        </button>
-
-        <button onclick="filterProducts('hoodie')">
-            HOODIES
-        </button>
-
-        <button onclick="filterProducts('cap')">
-            CAPS
-        </button>
-
-        <button onclick="filterProducts('pants')">
-            PANTS
-        </button>
-
-        <button onclick="filterProducts('other')">
-            OTHER
-        </button>
-
-    </section>
-
-    <!-- FEATURED DROP -->
-
-    <section class="featured-drop">
-
-        <img
-            src="assets/images/products/IMG-20260512-WA0043.jpg"
-            alt="Crime Scene Upcoming Drop"
-            loading="lazy">
-
-        <div class="featured-text">
-
-            <h2>UPCOMING DROP</h2>
-
-            <p>
-                More evidence loading...
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- PRODUCTS -->
-
-    <main>
-
-        <section class="products-container"
-                 id="products-container">
-
-            <!-- Products inserted by JS -->
-
-        </section>
-
-    </main>
-
-    <!-- CART ICON -->
-
-    <div class="cart-icon"
-         onclick="toggleCart()">
-
-        🛒
-
-        <span id="cart-count">
-            0
-        </span>
-
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero__inner">
+      <h1 class="hero__title">CRIME SCENE STORE</h1>
+      <p class="hero__sub">Leave Evidence Everywhere.</p>
+      <a href="#products" class="hero__btn">SHOP NOW</a>
     </div>
+  </section>
 
-    <!-- CART -->
+  <!-- ===================== FILTERS ===================== -->
+  <nav class="filters" aria-label="Product filters">
+    <button class="filter-btn active" onclick="filterProducts('all')">ALL</button>
+    <button class="filter-btn" onclick="filterProducts('tshirt')">T-SHIRTS</button>
+    <button class="filter-btn" onclick="filterProducts('hoodie')">HOODIES</button>
+    <button class="filter-btn" onclick="filterProducts('cap')">CAPS</button>
+    <button class="filter-btn" onclick="filterProducts('pants')">PANTS</button>
+    <button class="filter-btn" onclick="filterProducts('other')">OTHER</button>
+  </nav>
 
-    <aside class="cart"
-           id="cart">
+  <!-- ===================== FEATURED DROP ===================== -->
+  <section class="featured">
+    <img class="featured__img" src="assets/images/products/IMG-20260512-WA0043.jpg" alt="Crime Scene Upcoming Drop" loading="lazy">
+    <div class="featured__overlay">
+      <span class="featured__label">NEW</span>
+      <h2 class="featured__title">UPCOMING DROP</h2>
+      <p class="featured__sub">More evidence loading…</p>
+    </div>
+  </section>
 
-        <div class="cart-header">
+  <!-- ===================== PRODUCTS ===================== -->
+  <main>
+    <section class="products" id="products">
+      <!-- Injected by product.js -->
+    </section>
+  </main>
 
-            <h2>YOUR CART</h2>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <p>© 2026 CRIME SCENE. ALL RIGHTS RESERVED.</p>
+  </footer>
 
-            <button class="close-cart"
-                    onclick="toggleCart()">
-                ✕
-            </button>
+  <!-- ===================== CART TRIGGER ===================== -->
+  <button class="cart-trigger" onclick="toggleCart()" aria-label="Open cart">
+    🛒 <span id="cart-count">0</span>
+  </button>
 
-        </div>
+  <!-- ===================== CART PANEL ===================== -->
+  <aside class="cart-panel" id="cart" role="dialog" aria-label="Shopping cart">
+    <div class="cart-panel__head">
+      <h2 class="cart-panel__title">YOUR CART</h2>
+      <button class="cart-panel__close" onclick="toggleCart()" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-panel__items" id="cart-items"></div>
+    <div class="cart-panel__foot">
+      <div class="cart-panel__total" id="cart-total"></div>
+      <button class="cart-panel__checkout" onclick="checkoutWhatsApp()">ORDER ON WHATSAPP</button>
+    </div>
+  </aside>
 
-        <div id="cart-items">
-
-        </div>
-
-        <div class="cart-footer">
-
-            <button onclick="checkoutWhatsApp()">
-
-                ORDER ON WHATSAPP
-
-            </button>
-
-        </div>
-
-    </aside>
-
-    <!-- FOOTER -->
-
-    <footer class="store-footer">
-
-        <p>
-            © 2026 CRIME SCENE.
-            ALL RIGHTS RESERVED.
-        </p>
-
-    </footer>
-
-    <!-- JS -->
-
-    <script src="js/product.js"></script>
+  <script src="js/product.js"></script>
 
 </body>
-
 </html>
