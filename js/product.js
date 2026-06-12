@@ -314,292 +314,178 @@ const products = [
 
 
 // =========================
-// HTML ELEMENTS
+// DOM ELEMENTS
 // =========================
 
-const productsContainer =
-document.getElementById(
-"products-container"
-);
-
-const cartItemsContainer =
-document.getElementById(
-"cart-items"
-);
-
-const cartCounter =
-document.getElementById(
-"cart-count"
-);
-
-const cart =
-document.getElementById(
-"cart"
-);
-
+const productsContainer = document.getElementById("products-container");
+const cartItemsContainer = document.getElementById("cart-items");
+const cartCounter = document.getElementById("cart-count");
+const cart = document.getElementById("cart");
+const upcomingSection = document.getElementById("upcoming");
 
 // =========================
-// CART ARRAY
+// STATE
 // =========================
 
 let cartItems = [];
+let current = 0;
 
+const backgrounds = [
+  "assets/images/products/IMG-20260512-WA0043.jpg",
+  "assets/images/products/IMG-20260512-WA0042.jpg",
+  "assets/images/products/IMG-20260512-WA0023.jpg",
+  "assets/images/products/IMG-20260512-WA0010.jpg",
+  "assets/images/products/IMG-20260512-WA0008.jpg",
+];
 
 // =========================
 // DISPLAY PRODUCTS
 // =========================
 
-function displayProducts(items){
+function displayProducts(items) {
+  productsContainer.innerHTML = items.map(product => `
+    <div class="product-card">
+      <img src="${product.image}" alt="${product.name}">
 
-    productsContainer.innerHTML = "";
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <p>${product.price}</p>
 
-    items.forEach(product => {
-
-        productsContainer.innerHTML += `
-
-        <div class="product-card">
-
-            <img src="${product.image}"
-                 alt="${product.name}">
-
-            <div class="product-info">
-
-                <h3>${product.name}</h3>
-
-                <p>${product.price}</p>
-
-            <div class="sizes">
-
-            ${product.sizes.map(size =>
-
-                `<button class="size-btn">${size}</button>`
-
-                 ).join("")}
-
-            </div>
-
-            <button onclick="addToCart(${product.id}, this)">
-
-             ADD TO CART
-
-            </button>
-
-            </div>
-
+        <div class="sizes">
+          ${product.sizes.map(size => `
+            <button class="size-btn">${size}</button>
+          `).join("")}
         </div>
 
-        `;
-
-    });
-
+        <button onclick="addToCart(${product.id}, this)">
+          ADD TO CART
+        </button>
+      </div>
+    </div>
+  `).join("");
 }
 
 displayProducts(products);
 
-document.addEventListener("click", function(e){
+// =========================
+// SIZE SELECTION
+// =========================
 
-    if(e.target.classList.contains("size-btn")){
+document.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("size-btn")) return;
 
-        const buttons =
-        e.target.parentElement.querySelectorAll(".size-btn");
-
-        buttons.forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        e.target.classList.add("active");
-
-    }
-
+  const buttons = e.target.parentElement.querySelectorAll(".size-btn");
+  buttons.forEach(btn => btn.classList.remove("active"));
+  e.target.classList.add("active");
 });
-
 
 // =========================
 // FILTER PRODUCTS
 // =========================
 
-function filterProducts(category){
+function filterProducts(category) {
+  const filtered =
+    category === "all"
+      ? products
+      : products.filter(p => p.category === category);
 
-    if(category === "all"){
-
-        displayProducts(products);
-
-        return;
-    }
-
-    const filteredProducts =
-    products.filter(product =>
-    product.category === category
-    );
-
-    displayProducts(filteredProducts);
-
+  displayProducts(filtered);
 }
 
-const upcomingSection = document.getElementById("upcoming");
-
-const backgrounds = [
-    "assets/images/products/IMG-20260512-WA0043.jpg",
-    "assets/images/products/IMG-20260512-WA0042.jpg",
-    "assets/images/products/IMG-20260512-WA0023.jpg",
-    "assets/images/products/IMG-20260512-WA0010.jpg",
-    "assets/images/products/IMG-20260512-WA0008.jpg",
-];
-
-let current = 0;
+// =========================
+// BACKGROUND SLIDER
+// =========================
 
 setInterval(() => {
-
-    current++;
-
-    if(current >= backgrounds.length){
-        current = 0;
-    }
-
-    upcomingSection.style.backgroundImage =
-    `url('${backgrounds[current]}')`;
-
+  current = (current + 1) % backgrounds.length;
+  upcomingSection.style.backgroundImage = `url('${backgrounds[current]}')`;
 }, 3000);
 
-
 // =========================
-// ADD TO CART
+// CART LOGIC
 // =========================
 
-function addToCart(id, button){
+function addToCart(id, button) {
+  const product = products.find(p => p.id === id);
+  const card = button.closest(".product-card");
+  const activeSize = card.querySelector(".size-btn.active");
 
-    const product =
-    products.find(item => item.id === id);
+  if (!activeSize) {
+    alert("Please select a size");
+    return;
+  }
 
-    const productCard =
-    button.closest(".product-card");
+  cartItems.push({
+    ...product,
+    size: activeSize.textContent
+  });
 
-    const activeSize =
-    productCard.querySelector(".size-btn.active");
-
-    if(!activeSize){
-        alert("Please select a size");
-        return;
-    }
-
-    const selectedSize =
-    activeSize.textContent;
-
-    cartItems.push({
-        ...product,
-        size: selectedSize
-    });
-
-    updateCart();
+  updateCart();
 }
 
+function updateCart() {
+  cartItemsContainer.innerHTML = "";
 
-// =========================
-// UPDATE CART
-// =========================
+  cartItems.forEach((item, index) => {
+    cartItemsContainer.innerHTML += `
+      <div class="cart-item">
+        <h4>${item.name}</h4>
+        <p>Size: ${item.size}</p>
+        <p>${item.price}</p>
 
-function updateCart(){
+        <button onclick="removeFromCart(${index})">
+          REMOVE
+        </button>
+      </div>
+    `;
+  });
 
-    cartItemsContainer.innerHTML = "";
+  cartCounter.textContent = cartItems.length;
+}
 
-    cartItems.forEach((item, index) => {
-
-        cartItemsContainer.innerHTML += `
-
-        <div class="cart-item">
-
-            <h4>${item.name}</h4>
-            <p>Size: ${item.size}</p>
-            <p>${item.price}</p>
-
-            <button onclick="removeFromCart(${index})">
-                REMOVE
-            </button>
-
-        </div>
-
-        `;
-
-    });
-
-    cartCounter.innerText = cartItems.length;
+function removeFromCart(index) {
+  cartItems.splice(index, 1);
+  updateCart();
 }
 
 // =========================
-// REMOVE ITEM
+// CART TOGGLE
 // =========================
 
-function removeFromCart(index){
-
-    cartItems.splice(index, 1);
-
-    updateCart();
-
-}
-
-
-// =========================
-// TOGGLE CART
-// =========================
-
-window.toggleCart = function(){
-    console.log("Cart clicked");
-    cart.classList.toggle("active");
-}
+window.toggleCart = () => {
+  cart.classList.toggle("active");
+};
 
 // =========================
 // WHATSAPP CHECKOUT
 // =========================
 
-function checkoutWhatsApp(){
+function checkoutWhatsApp() {
+  if (!cartItems.length) {
+    alert("Your cart is empty.");
+    return;
+  }
 
-    if(cartItems.length === 0){
+  let message = "Hello Crime Scene,%0A%0AI want to order:%0A%0A";
 
-        alert("Your cart is empty.");
+  cartItems.forEach(item => {
+    message += `• ${item.name} - ${item.price}%0A`;
+  });
 
-        return;
-    }
+  message += "%0APlease confirm availability.";
 
-    let message =
-    "Hello Crime Scene,%0A%0A";
-
-    message +=
-    "I want to order:%0A%0A";
-
-    cartItems.forEach(item => {
-
-        message +=
-        `• ${item.name} - ${item.price}%0A`;
-
-    });
-
-    message +=
-    "%0APlease confirm availability.";
-
-    window.open(
-
+  window.open(
     `https://wa.me/27692574788?text=${message}`,
-
     "_blank"
-
-    );
-
+  );
 }
 
-
 // =========================
-// CLOSE CART WHEN CLICKING OUTSIDE
+// CLOSE CART OUTSIDE CLICK
 // =========================
 
 window.addEventListener("click", (e) => {
-
-    if(
-        !cart.contains(e.target) &&
-        !e.target.classList.contains("cart-icon")
-    ){
-
-        cart.classList.remove("active");
-
-    }
-
+  if (!cart.contains(e.target) && !e.target.classList.contains("cart-icon")) {
+    cart.classList.remove("active");
+  }
 });
