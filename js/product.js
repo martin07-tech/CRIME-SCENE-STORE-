@@ -1,4 +1,13 @@
 // ======================================
+// PAGE LOAD
+// ======================================
+
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
+
+
+// ======================================
 // PRODUCTS
 // ======================================
 
@@ -11,7 +20,6 @@ const products = [
         sizes: ["S", "M", "L", "XL"],
         image: "assets/images/products/IMG-20260512-WA0014.jpg"
     },
-
     {
         id: 2,
         name: "CS Hoodie",
@@ -20,7 +28,6 @@ const products = [
         sizes: ["S", "M", "L", "XL"],
         image: "assets/images/products/IMG-20260512-WA0007.jpg"
     },
-
     {
         id: 3,
         name: "Crime Cap",
@@ -36,20 +43,13 @@ const products = [
 // HTML ELEMENTS
 // ======================================
 
-const productsContainer =
-document.getElementById("products-container");
-
-const cartItemsContainer =
-document.getElementById("cart-items");
-
-const cartCounter =
-document.getElementById("cart-count");
-
-const cartPanel =
-document.getElementById("cart");
-
-const filterButtons =
-document.querySelectorAll(".shop-nav button");
+const productsContainer   = document.getElementById("products");
+const cartItemsContainer  = document.getElementById("cart-items");
+const cartTotalEl         = document.getElementById("cart-total");
+const cartCounter         = document.getElementById("cart-count");
+const cartPanel           = document.getElementById("cart");
+const filterButtons       = document.querySelectorAll(".filter-btn");
+const header              = document.querySelector(".header");
 
 
 // ======================================
@@ -63,83 +63,43 @@ let cartItems = [];
 // DISPLAY PRODUCTS
 // ======================================
 
-function displayProducts(items){
+function displayProducts(items) {
 
     productsContainer.innerHTML = "";
 
+    if (items.length === 0) {
+        productsContainer.innerHTML = `
+            <p style="color:var(--text-soft);letter-spacing:2px;grid-column:1/-1;text-align:center;padding:40px 0;">
+                NO PRODUCTS IN THIS CATEGORY YET.
+            </p>`;
+        return;
+    }
+
     items.forEach(product => {
 
-        productsContainer.innerHTML += `
+        const card = document.createElement("div");
+        card.className = "product-card hidden";
 
-        <div class="product-card fade-up">
-
-            <img src="${product.image}"
-                 alt="${product.name}">
-
+        card.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" loading="lazy">
             <div class="product-info">
-
                 <h3>${product.name}</h3>
-
                 <p>R${product.price}</p>
-
                 <div class="sizes">
-
                     ${product.sizes.map(size =>
-
-                        `
-                        <button class="size-btn">
-                            ${size}
-                        </button>
-                        `
-
+                        `<button class="size-btn">${size}</button>`
                     ).join("")}
-
                 </div>
-
-                <button
-                    onclick="addToCart(${product.id}, this)"
-                    class="add-btn"
-                >
-
-                    ADD TO CART
-
-                </button>
-
+                <button onclick="addToCart(${product.id}, this)">ADD TO CART</button>
             </div>
-
-        </div>
-
         `;
 
+        productsContainer.appendChild(card);
+        observer.observe(card);
     });
-
 }
 
 displayProducts(products);
-
-
-// ======================================
-// SIZE SELECTION
-// ======================================
-
-document.addEventListener("click", function(e){
-
-    if(e.target.classList.contains("size-btn")){
-
-        const buttons =
-        e.target.parentElement.querySelectorAll(".size-btn");
-
-        buttons.forEach(btn => {
-
-            btn.classList.remove("active");
-
-        });
-
-        e.target.classList.add("active");
-
-    }
-
-});
 
 
 // ======================================
@@ -148,151 +108,59 @@ document.addEventListener("click", function(e){
 
 function filterProducts(category) {
 
-    const container =
-    document.getElementById("products-container");
+    // update active button
+    filterButtons.forEach(btn => btn.classList.remove("active"));
 
-    container.innerHTML = "";
+    event.target.classList.add("active");
 
-    if(category !== "all") {
+    const filtered = category === "all"
+        ? products
+        : products.filter(p => p.category === category);
 
-        const drop = upcomingDrops[category];
-
-        container.innerHTML += `
-
-        <section class="featured-drop">
-
-            <img src="${drop.image}">
-
-            <div class="featured-text">
-
-                <h2>${drop.title}</h2>
-
-                <p>${drop.text}</p>
-
-            </div>
-
-        </section>
-
-        `;
-    }
-
-    let filteredProducts;
-
-    if(category === "all") {
-
-        filteredProducts = products;
-
-    } else {
-
-        filteredProducts =
-        products.filter(product =>
-        product.category === category);
-
-    }
-
-    filteredProducts.forEach(product => {
-
-        container.innerHTML += `
-
-        <div class="product-card">
-
-            <img src="${product.image}">
-
-            <h3>${product.name}</h3>
-
-            <p>R${product.price}</p>
-
-        </div>
-
-        `;
-
-    });
-
+    displayProducts(filtered);
 }
 
+
 // ======================================
-// UPCOMING SLIDER
+// SIZE SELECTION
 // ======================================
 
-const upcomingSection =
-document.getElementById("upcoming");
+document.addEventListener("click", function (e) {
 
-const backgrounds = [
+    if (e.target.classList.contains("size-btn")) {
 
-    "assets/images/products/IMG-20260512-WA0043.jpg",
+        const siblings =
+            e.target.closest(".sizes").querySelectorAll(".size-btn");
 
-    "assets/images/products/IMG-20260512-WA0042.jpg",
+        siblings.forEach(btn => btn.classList.remove("active"));
 
-    "assets/images/products/IMG-20260512-WA0023.jpg",
-
-    "assets/images/products/IMG-20260512-WA0010.jpg",
-
-    "assets/images/products/IMG-20260512-WA0008.jpg"
-
-];
-
-let currentBackground = 0;
-
-setInterval(() => {
-
-    currentBackground++;
-
-    if(currentBackground >= backgrounds.length){
-
-        currentBackground = 0;
-
+        e.target.classList.add("active");
     }
-
-    upcomingSection.style.backgroundImage =
-    `
-    linear-gradient(
-        rgba(0,0,0,0.65),
-        rgba(0,0,0,0.8)
-    ),
-    url('${backgrounds[currentBackground]}')
-    `;
-
-}, 3500);
+});
 
 
 // ======================================
 // ADD TO CART
 // ======================================
 
-function addToCart(id, button){
+function addToCart(id, button) {
 
-    const product =
-    products.find(item => item.id === id);
+    const product     = products.find(item => item.id === id);
+    const card        = button.closest(".product-card");
+    const activeSize  = card.querySelector(".size-btn.active");
 
-    const productCard =
-    button.closest(".product-card");
-
-    const activeSize =
-    productCard.querySelector(".size-btn.active");
-
-    if(!activeSize){
-
+    if (!activeSize) {
         alert("Please select a size.");
-
         return;
-
     }
 
-    const selectedSize =
-    activeSize.textContent;
-
     cartItems.push({
-
         ...product,
-
-        size: selectedSize
-
+        size: activeSize.textContent.trim()
     });
 
     updateCart();
-
     cartPanel.classList.add("active");
-
 }
 
 
@@ -300,7 +168,7 @@ function addToCart(id, button){
 // UPDATE CART
 // ======================================
 
-function updateCart(){
+function updateCart() {
 
     cartItemsContainer.innerHTML = "";
 
@@ -311,51 +179,22 @@ function updateCart(){
         total += item.price;
 
         cartItemsContainer.innerHTML += `
-
-        <div class="cart-item">
-
-            <div>
-
-                <h4>${item.name}</h4>
-
-                <p>
-                    Size: ${item.size}
-                </p>
-
-                <p>
-                    R${item.price}
-                </p>
-
+            <div class="cart-item">
+                <div class="cart-item__info">
+                    <h4>${item.name}</h4>
+                    <p>Size: ${item.size}</p>
+                    <p>R${item.price}</p>
+                </div>
+                <button onclick="removeFromCart(${index})" class="remove-btn">✕</button>
             </div>
-
-            <button
-                onclick="removeFromCart(${index})"
-                class="remove-btn"
-            >
-
-                ✕
-
-            </button>
-
-        </div>
-
         `;
-
     });
 
-    cartItemsContainer.innerHTML += `
+    cartTotalEl.textContent = cartItems.length
+        ? `TOTAL: R${total}`
+        : "";
 
-    <div class="cart-total">
-
-        TOTAL: R${total}
-
-    </div>
-
-    `;
-
-    cartCounter.innerText =
-    cartItems.length;
-
+    cartCounter.textContent = cartItems.length;
 }
 
 
@@ -363,12 +202,9 @@ function updateCart(){
 // REMOVE FROM CART
 // ======================================
 
-function removeFromCart(index){
-
+function removeFromCart(index) {
     cartItems.splice(index, 1);
-
     updateCart();
-
 }
 
 
@@ -376,58 +212,8 @@ function removeFromCart(index){
 // TOGGLE CART
 // ======================================
 
-function toggleCart(){
-
+function toggleCart() {
     cartPanel.classList.toggle("active");
-
-}
-
-
-// ======================================
-// WHATSAPP CHECKOUT
-// ======================================
-
-function checkoutWhatsApp(){
-
-    if(cartItems.length === 0){
-
-        alert("Your cart is empty.");
-
-        return;
-
-    }
-
-    let message =
-    "Hello Crime Scene,%0A%0A";
-
-    message +=
-    "I want to order:%0A%0A";
-
-    let total = 0;
-
-    cartItems.forEach(item => {
-
-        total += item.price;
-
-        message +=
-        `• ${item.name} | Size: ${item.size} | R${item.price}%0A`;
-
-    });
-
-    message +=
-    `%0ATotal: R${total}%0A`;
-
-    message +=
-    "%0APlease confirm availability.";
-
-    window.open(
-
-        `https://wa.me/27692574788?text=${message}`,
-
-        "_blank"
-
-    );
-
 }
 
 
@@ -437,69 +223,59 @@ function checkoutWhatsApp(){
 
 window.addEventListener("click", (e) => {
 
-    if(
+    if (
         !cartPanel.contains(e.target) &&
-        !e.target.closest(".cart-icon")
-    ){
-
+        !e.target.closest(".cart-trigger")
+    ) {
         cartPanel.classList.remove("active");
+    }
+});
 
+
+// ======================================
+// WHATSAPP CHECKOUT
+// ======================================
+
+function checkoutWhatsApp() {
+
+    if (cartItems.length === 0) {
+        alert("Your cart is empty.");
+        return;
     }
 
-});
+    let message = "Hello Crime Scene,%0A%0AI want to order:%0A%0A";
+
+    let total = 0;
+
+    cartItems.forEach(item => {
+        total += item.price;
+        message += `• ${item.name} | Size: ${item.size} | R${item.price}%0A`;
+    });
+
+    message += `%0ATotal: R${total}%0A%0APlease confirm availability.`;
+
+    window.open(`https://wa.me/27692574788?text=${message}`, "_blank");
+}
 
 
 // ======================================
 // HEADER SCROLL EFFECT
 // ======================================
 
-const header =
-document.querySelector(".header");
-
 window.addEventListener("scroll", () => {
-
-    if(window.scrollY > 50){
-
-        header.classList.add("scrolled");
-
-    }
-
-    else{
-
-        header.classList.remove("scrolled");
-
-    }
-
+    header.classList.toggle("scrolled", window.scrollY > 50);
 });
 
 
 // ======================================
-// INTERSECTION OBSERVER
+// INTERSECTION OBSERVER (scroll reveal)
 // ======================================
 
-const observer =
-new IntersectionObserver((entries) => {
-
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
+        if (entry.isIntersecting) {
             entry.target.classList.add("show");
-
+            observer.unobserve(entry.target);
         }
-
     });
-
-}, {
-    threshold: 0.15
-});
-
-document.querySelectorAll(
-".product-card, .overlay, .gallery-section"
-).forEach(el => {
-
-    el.classList.add("hidden");
-
-    observer.observe(el);
-
-});
+}, { threshold: 0.12 });
