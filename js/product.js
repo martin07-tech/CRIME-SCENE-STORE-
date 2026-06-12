@@ -508,13 +508,12 @@ function updateCart(){
 
         <div class="cart-item">
 
-            <<h4>${item.name}</h4>
-             <p>Size: ${item.size}</p>
-             <p>${item.price}</p>
+            <h4>${item.name}</h4>
+            <p>Size: ${item.size}</p>
+            <p>${item.price}</p>
+
             <button onclick="removeFromCart(${index})">
-
                 REMOVE
-
             </button>
 
         </div>
@@ -523,11 +522,8 @@ function updateCart(){
 
     });
 
-    cartCounter.innerText =
-    cartItems.length;
-
+    cartCounter.innerText = cartItems.length;
 }
-
 
 // =========================
 // REMOVE ITEM
