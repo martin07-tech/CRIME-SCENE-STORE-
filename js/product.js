@@ -487,11 +487,9 @@ function addToCart(id, button){
     const selectedSize =
     activeSize.textContent;
 
-    cart.push({
-
-        ...product,
-
-        size: selectedSize
+    cartItems.push({
+    ...product,
+    size: selectedSize
 
     });
 
@@ -514,10 +512,9 @@ function updateCart(){
 
         <div class="cart-item">
 
-            <h4>${item.name}</h4>
-
-            <p>${item.price}</p>
-
+            <<h4>${item.name}</h4>
+             <p>Size: ${item.size}</p>
+             <p>${item.price}</p>
             <button onclick="removeFromCart(${index})">
 
                 REMOVE
