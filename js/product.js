@@ -7,12 +7,13 @@ window.addEventListener("load", () => {
 });
 
 
-// ======================================
+// =========================
 // PRODUCTS
-// ======================================
+// =========================
 
 const products = [
-  {
+
+{
     id: 1,
     name: "Case NO:1 Tee",
     price: "R220",
@@ -312,243 +313,306 @@ const products = [
 ];
 
 
-// ======================================
+// =========================
 // HTML ELEMENTS
-// ======================================
+// =========================
 
-const productsContainer   = document.getElementById("products");
-const cartItemsContainer  = document.getElementById("cart-items");
-const cartTotalEl         = document.getElementById("cart-total");
-const cartCounter         = document.getElementById("cart-count");
-const cartPanel           = document.getElementById("cart");
-const filterButtons       = document.querySelectorAll(".filter-btn");
-const header              = document.querySelector(".header");
+const productsContainer =
+document.getElementById(
+"products-container"
+);
+
+const cartItemsContainer =
+document.getElementById(
+"cart-items"
+);
+
+const cartCounter =
+document.getElementById(
+"cart-count"
+);
+
+const cart =
+document.getElementById(
+"cart"
+);
 
 
-// ======================================
+// =========================
 // CART ARRAY
-// ======================================
+// =========================
 
 let cartItems = [];
 
 
-// ======================================
+// =========================
 // DISPLAY PRODUCTS
-// ======================================
+// =========================
 
-function displayProducts(items) {
+function displayProducts(items){
 
     productsContainer.innerHTML = "";
 
-    if (items.length === 0) {
-        productsContainer.innerHTML = `
-            <p style="color:var(--text-soft);letter-spacing:2px;grid-column:1/-1;text-align:center;padding:40px 0;">
-                NO PRODUCTS IN THIS CATEGORY YET.
-            </p>`;
-        return;
-    }
-
     items.forEach(product => {
 
-        const card = document.createElement("div");
-        card.className = "product-card hidden";
+        productsContainer.innerHTML += `
 
-        card.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" loading="lazy">
+        <div class="product-card">
+
+            <img src="${product.image}"
+                 alt="${product.name}">
+
             <div class="product-info">
+
                 <h3>${product.name}</h3>
-                <p>R${product.price}</p>
-                <div class="sizes">
-                    ${product.sizes.map(size =>
-                        `<button class="size-btn">${size}</button>`
-                    ).join("")}
-                </div>
-                <button onclick="addToCart(${product.id}, this)">ADD TO CART</button>
+
+                <p>${product.price}</p>
+
+            <div class="sizes">
+
+            ${product.sizes.map(size =>
+
+                `<button class="size-btn">${size}</button>`
+
+                 ).join("")}
+
             </div>
+
+            <button onclick="addToCart(${product.id}, this)">
+
+             ADD TO CART
+
+            </button>
+
+            </div>
+
+        </div>
+
         `;
 
-        productsContainer.appendChild(card);
-        observer.observe(card);
     });
+
 }
 
 displayProducts(products);
 
+document.addEventListener("click", function(e){
 
-// ======================================
-// FILTER PRODUCTS
-// ======================================
+    if(e.target.classList.contains("size-btn")){
 
-function filterProducts(category) {
+        const buttons =
+        e.target.parentElement.querySelectorAll(".size-btn");
 
-    // update active button
-    filterButtons.forEach(btn => btn.classList.remove("active"));
-
-    event.target.classList.add("active");
-
-    const filtered = category === "all"
-        ? products
-        : products.filter(p => p.category === category);
-
-    displayProducts(filtered);
-}
-
-
-// ======================================
-// SIZE SELECTION
-// ======================================
-
-document.addEventListener("click", function (e) {
-
-    if (e.target.classList.contains("size-btn")) {
-
-        const siblings =
-            e.target.closest(".sizes").querySelectorAll(".size-btn");
-
-        siblings.forEach(btn => btn.classList.remove("active"));
+        buttons.forEach(btn =>
+            btn.classList.remove("active")
+        );
 
         e.target.classList.add("active");
+
     }
+
 });
 
 
-// ======================================
-// ADD TO CART
-// ======================================
+// =========================
+// FILTER PRODUCTS
+// =========================
 
-function addToCart(id, button) {
+function filterProducts(category){
 
-    const product     = products.find(item => item.id === id);
-    const card        = button.closest(".product-card");
-    const activeSize  = card.querySelector(".size-btn.active");
+    if(category === "all"){
 
-    if (!activeSize) {
-        alert("Please select a size.");
+        displayProducts(products);
+
         return;
     }
 
-    cartItems.push({
+    const filteredProducts =
+    products.filter(product =>
+    product.category === category
+    );
+
+    displayProducts(filteredProducts);
+
+}
+
+const upcomingSection = document.getElementById("upcoming");
+
+const backgrounds = [
+    "assets/images/products/IMG-20260512-WA0043.jpg",
+    "assets/images/products/IMG-20260512-WA0042.jpg",
+    "assets/images/products/IMG-20260512-WA0023.jpg",
+    "assets/images/products/IMG-20260512-WA0010.jpg",
+    "assets/images/products/IMG-20260512-WA0008.jpg",
+];
+
+let current = 0;
+
+setInterval(() => {
+
+    current++;
+
+    if(current >= backgrounds.length){
+        current = 0;
+    }
+
+    upcomingSection.style.backgroundImage =
+    `url('${backgrounds[current]}')`;
+
+}, 3000);
+
+
+// =========================
+// ADD TO CART
+// =========================
+
+function addToCart(id, button){
+
+    const product =
+    products.find(item => item.id === id);
+
+    const productCard =
+    button.closest(".product-card");
+
+    const activeSize =
+    productCard.querySelector(".size-btn.active");
+
+    if(!activeSize){
+
+        alert("Please select a size");
+
+        return;
+    }
+
+    const selectedSize =
+    activeSize.textContent;
+
+    cart.push({
+
         ...product,
-        size: activeSize.textContent.trim()
+
+        size: selectedSize
+
     });
 
     updateCart();
-    cartPanel.classList.add("active");
+
 }
 
 
-// ======================================
+// =========================
 // UPDATE CART
-// ======================================
+// =========================
 
-function updateCart() {
+function updateCart(){
 
     cartItemsContainer.innerHTML = "";
 
-    let total = 0;
-
     cartItems.forEach((item, index) => {
 
-        total += item.price;
-
         cartItemsContainer.innerHTML += `
-            <div class="cart-item">
-                <div class="cart-item__info">
-                    <h4>${item.name}</h4>
-                    <p>Size: ${item.size}</p>
-                    <p>R${item.price}</p>
-                </div>
-                <button onclick="removeFromCart(${index})" class="remove-btn">✕</button>
-            </div>
+
+        <div class="cart-item">
+
+            <h4>${item.name}</h4>
+
+            <p>${item.price}</p>
+
+            <button onclick="removeFromCart(${index})">
+
+                REMOVE
+
+            </button>
+
+        </div>
+
         `;
+
     });
 
-    cartTotalEl.textContent = cartItems.length
-        ? `TOTAL: R${total}`
-        : "";
+    cartCounter.innerText =
+    cartItems.length;
 
-    cartCounter.textContent = cartItems.length;
 }
 
 
-// ======================================
-// REMOVE FROM CART
-// ======================================
+// =========================
+// REMOVE ITEM
+// =========================
 
-function removeFromCart(index) {
+function removeFromCart(index){
+
     cartItems.splice(index, 1);
+
     updateCart();
+
 }
 
 
-// ======================================
+// =========================
 // TOGGLE CART
-// ======================================
+// =========================
 
-function toggleCart() {
-    cartPanel.classList.toggle("active");
+function toggleCart(){
+
+    cart.classList.toggle("active");
+
 }
 
 
-// ======================================
-// CLOSE CART WHEN CLICKING OUTSIDE
-// ======================================
-
-window.addEventListener("click", (e) => {
-
-    if (
-        !cartPanel.contains(e.target) &&
-        !e.target.closest(".cart-trigger")
-    ) {
-        cartPanel.classList.remove("active");
-    }
-});
-
-
-// ======================================
+// =========================
 // WHATSAPP CHECKOUT
-// ======================================
+// =========================
 
-function checkoutWhatsApp() {
+function checkoutWhatsApp(){
 
-    if (cartItems.length === 0) {
+    if(cartItems.length === 0){
+
         alert("Your cart is empty.");
+
         return;
     }
 
-    let message = "Hello Crime Scene,%0A%0AI want to order:%0A%0A";
+    let message =
+    "Hello Crime Scene,%0A%0A";
 
-    let total = 0;
+    message +=
+    "I want to order:%0A%0A";
 
     cartItems.forEach(item => {
-        total += item.price;
-        message += `• ${item.name} | Size: ${item.size} | R${item.price}%0A`;
+
+        message +=
+        `• ${item.name} - ${item.price}%0A`;
+
     });
 
-    message += `%0ATotal: R${total}%0A%0APlease confirm availability.`;
+    message +=
+    "%0APlease confirm availability.";
 
-    window.open(`https://wa.me/27692574788?text=${message}`, "_blank");
+    window.open(
+
+    `https://wa.me/27692574788?text=${message}`,
+
+    "_blank"
+
+    );
+
 }
 
 
-// ======================================
-// HEADER SCROLL EFFECT
-// ======================================
+// =========================
+// CLOSE CART WHEN CLICKING OUTSIDE
+// =========================
 
-window.addEventListener("scroll", () => {
-    header.classList.toggle("scrolled", window.scrollY > 50);
+window.addEventListener("click", (e) => {
+
+    if(
+        !cart.contains(e.target) &&
+        !e.target.classList.contains("cart-icon")
+    ){
+
+        cart.classList.remove("active");
+
+    }
+
 });
-
-
-// ======================================
-// INTERSECTION OBSERVER (scroll reveal)
-// ======================================
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.12 });
