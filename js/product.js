@@ -11,7 +11,6 @@ window.addEventListener("load", () => {
 // =========================
 
 const products = [
-const products = [
 
   {
     id: 37,
