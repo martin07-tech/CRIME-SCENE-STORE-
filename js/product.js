@@ -85,8 +85,7 @@ id: 36,  name: "Interrogation Dept (black): Tee",                price: 220, cat
 
   { id: 2, name: "CS P Hoodie (Black)",            price: 375, category: "hoodie", sizes: ["S","M","L","XL"],    image: "assets/images/products/IMG-20260512-WA0009.jpg" },
 
-  { id: 1, name: "CS Hoodie",                      price: 360, category: "hoodie", sizes: ["S","M","L","XL"],    image: "assets/images/products/IMG-20260512-WA0044.jpg" },
-
+  { id: 1, name: "CS Hoodie",                      price: 360, category: "hoodie", sizes: ["S","M","L","XL"],    image: "assets/images/products/IMG-20260512-WA0044.jpg" }
 ];
 
 // =========================
