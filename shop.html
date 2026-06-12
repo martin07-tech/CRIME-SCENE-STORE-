@@ -18,133 +18,92 @@
 
 <body>
 
-    <!-- HERO -->
-
-    <section class="shop-hero">
-
-        <div class="shop-content">
-
-            <h1>CRIME SCENE STORE</h1>
-
-            <p>
-                Leave Evidence Everywhere
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- NAVIGATION -->
-
-    <section class="shop-nav">
-
-        <button onclick="filterProducts('all')">
-            ALL
-        </button>
-
-        <button onclick="filterProducts('tshirt')">
-            T-SHIRTS
-        </button>
-
-        <button onclick="filterProducts('hoodie')">
-            HOODIES
-        </button>
-
-        <button onclick="filterProducts('cap')">
-            CAPS
-        </button>
-
-        <button onclick="filterProducts('pants')">
-            PANTS
-        </button>
-
-        <button onclick="filterProducts('other')">
-            OTHER
-        </button>
-
-    </section>
-
-    <!-- FEATURED -->
-
-    <section class="upcoming-products" id="upcoming">
-
-    <div class="overlay">
-        <h1>Upcoming Products</h1>
-        <p>New drops coming soon.</p>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="assets/images/InShot_20260411_144224557.jpg" alt="Crime Scene Logo" class="logo">
+      </a>
     </div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+    </nav>
+  </header>
 
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>THE STORE</h1>
+      <p>Leave Evidence Everywhere.</p>
+      <a href="#products-container" class="cta-btn">SHOP NOW</a>
+    </div>
+  </section>
 
-    <!-- PRODUCTS -->
+  <!-- FILTERS -->
+  <nav class="shop-nav">
+    <button class="filter-btn active" onclick="filterProducts('all')">ALL</button>
+    <button class="filter-btn" onclick="filterProducts('tshirt')">T-SHIRTS</button>
+    <button class="filter-btn" onclick="filterProducts('hoodie')">HOODIES</button>
+    <button class="filter-btn" onclick="filterProducts('cap')">CAPS</button>
+    <button class="filter-btn" onclick="filterProducts('pants')">PANTS</button>
+    <button class="filter-btn" onclick="filterProducts('other')">OTHER</button>
+  </nav>
 
-    <section class="products-container"
-             id="products-container">
+  <!-- FEATURED DROP -->
+  <section class="upcoming-products" id="upcoming">
+    <div class="overlay">
+      <span class="overlay__label">DROPPING SOON</span>
+      <h2>UPCOMING DROP</h2>
+      <p>More evidence loading…</p>
+    </div>
+  </section>
 
-    </section>
-  <!-- ═══════════════════════════ CTA ═════════════════════════════ -->
+  <!-- PRODUCTS -->
+  <section class="products-section">
+    <div class="section-title">
+      <h2>THE COLLECTION</h2>
+    </div>
+    <div class="products-container" id="products-container">
+      <!-- Injected by product.js -->
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="cta-section">
     <h2>LEAVE YOUR MARK</h2>
     <p>Every piece tells a story. Every fit leaves evidence.</p>
     <a href="index.html" class="cta-btn">BACK TO HOME</a>
   </section>
 
-  <!-- ═══════════════════════════ FOOTER ══════════════════════════ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="socials">
-               <a href="https://www.instagram.com/crimedrip?igsh=eDRuYWk0MGx1YnZj"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <img src="assets/images/instagram.jpeg"
-                    alt="Instagram">
-
-            </a>
-
-            <a href="https://www.tiktok.com/@crimescene1441?_r=1&_t=ZS-95OgPBga3Vc"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <img src="assets/images/tiktok.png"
-                    alt="TikTok">
-
-            </a>
-
-            <a href="https://youtube.com/@crimescenelifestyle?si=PqlXC4V3-9mZd_7v"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <img src="assets/images/youtube.png"
-                    alt="YouTube">
-
-            </a>
-
-<a href="https://www.facebook.com/profile.php?id=61587080947589"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <img src="assets/images/facebook.png"
-                    alt="Facebook">
-
-            </a>
-
-            <a href="https://whatsapp.com/channel/0029VbCSSCiEquiRIJZGGv15"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <img src="assets/images/whatsapp.png"
-                    alt="WhatsApp">
-
-            </a>
+      <a href="https://www.instagram.com/crimedrip?igsh=eDRuYWk0MGx1YnZj" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/instagram.jpeg" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@crimescene1441?_r=1&_t=ZS-95OgPBga3Vc" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/tiktok.png" alt="TikTok">
+      </a>
+      <a href="https://youtube.com/@crimescenelifestyle?si=PqlXC4V3-9mZd_7v" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/youtube.png" alt="YouTube">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61587080947589" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://whatsapp.com/channel/0029VbCSSCiEquiRIJZGGv15" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/whatsapp.png" alt="WhatsApp">
+      </a>
     </div>
     <p>© 2026 CRIME SCENE. ALL RIGHTS RESERVED.</p>
   </footer>
 
-  <!-- ═══════════════════════════ CART TRIGGER ════════════════════ -->
+  <!-- CART TRIGGER -->
   <button class="cart-trigger" onclick="toggleCart()" aria-label="Open cart">
     🛒 <span id="cart-count">0</span>
   </button>
 
-  <!-- ═══════════════════════════ CART PANEL ══════════════════════ -->
+  <!-- CART PANEL -->
   <aside class="cart-panel" id="cart" role="dialog" aria-label="Shopping cart">
     <div class="cart-panel__head">
       <h2 class="cart-panel__title">YOUR CART</h2>
