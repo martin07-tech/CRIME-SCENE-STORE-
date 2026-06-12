@@ -12,7 +12,12 @@ window.addEventListener("load", () => {
 
 const products = [
 
-{ id: 34,  name: "Interrogation dept(white). Cap",                price: 120, category: "cap", sizes: ["One Size"],    image: "assets/images/products/IMG-20260612-WA0005.jpg" },
+id: 37,  name: "Interrogation Dept (white): Tee",                price: 220, category: "tshirt", sizes: ["S","M","L","XL"],    image: "assets/images/products/IMG-20260612-WA0007.jpg" },
+
+
+id: 36,  name: "Interrogation Dept (black): Tee",                price: 220, category: "tshirt", sizes: ["S","M","L","XL"],    image: "assets/images/products/IMG-20260612-WA0009.jpg" },
+
+{ id: 35,  name: "Interrogation dept(white). Cap",                price: 120, category: "cap", sizes: ["One Size"],    image: "assets/images/products/IMG-20260612-WA0005.jpg" },
 
 { id: 34,  name: "Interrogation dept(black). Cap",                price: 120, category: "cap", sizes: ["One Size"],    image: "assets/images/products/IMG-20260612-WA0010.jpg" },
 
