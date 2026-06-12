@@ -72,6 +72,10 @@ const backgrounds = [
   "assets/images/products/IMG-20260512-WA0023.jpg",
   "assets/images/products/IMG-20260512-WA0010.jpg",
   "assets/images/products/IMG-20260512-WA0008.jpg"
+"assets/images/products/IMG-20260612-WA0011.jpg" 
+"assets/images/products/IMG-20260612-WA0008.jpg" 
+"assets/images/products/IMG-20260612-WA0006.jpg" 
+"assets/images/products/IMG-20260612-WA0004.jpg" 
 ];
 
 // =========================
