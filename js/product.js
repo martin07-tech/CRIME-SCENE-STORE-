@@ -478,9 +478,7 @@ function addToCart(id, button){
     productCard.querySelector(".size-btn.active");
 
     if(!activeSize){
-
         alert("Please select a size");
-
         return;
     }
 
@@ -488,13 +486,11 @@ function addToCart(id, button){
     activeSize.textContent;
 
     cartItems.push({
-    ...product,
-    size: selectedSize
-
+        ...product,
+        size: selectedSize
     });
 
     updateCart();
-
 }
 
 
