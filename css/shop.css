@@ -1,5 +1,5 @@
 /* ===================================
-   ROOT VARIABLES  (matches style.css)
+   ROOT VARIABLES  — matches style.css
 =================================== */
 
 :root {
@@ -59,7 +59,7 @@ img { display: block; max-width: 100%; }
 ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 20px; }
 
 /* ===================================
-   HEADER  (identical to homepage)
+   HEADER  — identical to homepage
 =================================== */
 
 .header {
@@ -92,7 +92,7 @@ img { display: block; max-width: 100%; }
 .logo:hover { transform: scale(1.03); }
 
 /* ===================================
-   NAVBAR  (identical to homepage)
+   NAVBAR  — identical to homepage
 =================================== */
 
 .navbar {
@@ -129,7 +129,7 @@ img { display: block; max-width: 100%; }
 .navbar a.active::after { width: 100%; }
 
 /* ===================================
-   HERO
+   HERO  — same structure as homepage
 =================================== */
 
 .hero {
@@ -139,11 +139,11 @@ img { display: block; max-width: 100%; }
   align-items: center;
   text-align: center;
   padding: 140px 10% 100px;
+  position: relative;
+  overflow: hidden;
   background:
     linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.85)),
     url('../assets/images/1778479304655.jpg') center / cover no-repeat fixed;
-  position: relative;
-  overflow: hidden;
 }
 
 .hero::before {
@@ -178,7 +178,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* ===================================
-   SHARED BUTTON  (matches homepage)
+   CTA BUTTON  — identical to homepage
 =================================== */
 
 .cta-btn {
@@ -198,10 +198,10 @@ img { display: block; max-width: 100%; }
 }
 
 /* ===================================
-   FILTERS
+   FILTERS / SHOP NAV
 =================================== */
 
-.shop-filters {
+.shop-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -236,46 +236,43 @@ img { display: block; max-width: 100%; }
 }
 
 /* ===================================
-   FEATURED DROP
+   UPCOMING / FEATURED DROP
 =================================== */
 
-.featured-drop {
+.upcoming-products {
+  min-height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  height: 65vh;
   overflow: hidden;
-  border-top: 1px solid var(--border-soft);
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.82)),
+    url('../assets/images/products/IMG-20260512-WA0043.jpg') center / cover no-repeat;
+  transition: background-image 1s ease;
 }
 
-.featured-drop__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.8s ease;
-}
-
-.featured-drop:hover .featured-drop__img {
-  transform: scale(1.04);
-}
-
-/* diagonal cinematic overlay */
-.featured-drop__overlay {
+.upcoming-products::before {
+  content: '';
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(
-    135deg,
-    rgba(0,0,0,0.82) 0%,
-    rgba(0,0,0,0.35) 55%,
-    transparent 100%
-  );
-  padding: 10%;
+  background: radial-gradient(circle, var(--gold-glow), transparent 65%);
+  pointer-events: none;
 }
 
-.featured-drop__label {
+.overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.40);
+  padding: 50px 60px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-soft);
+  max-width: 580px;
+}
+
+.overlay__label {
   display: inline-block;
   font-size: 10px;
   font-weight: 700;
@@ -285,24 +282,22 @@ img { display: block; max-width: 100%; }
   background: var(--gold);
   padding: 5px 18px;
   border-radius: 40px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
-.featured-drop__title {
+.overlay h2 {
   font-family: 'Special Elite', cursive;
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
   color: var(--text-light);
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  text-align: center;
+  margin-bottom: 14px;
 }
 
-.featured-drop__sub {
-  margin-top: 14px;
-  font-size: 13px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+.overlay p {
   color: var(--text-soft);
+  letter-spacing: 2px;
+  line-height: 1.8;
 }
 
 /* ===================================
@@ -314,7 +309,7 @@ img { display: block; max-width: 100%; }
   background: var(--bg-dark);
 }
 
-/* section title — matches .section-title from homepage */
+/* section title — matches homepage */
 .section-title {
   text-align: center;
   margin-bottom: 60px;
@@ -383,15 +378,14 @@ img { display: block; max-width: 100%; }
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--gold);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-.product-info p {
-  font-size: 13px;
-  color: var(--text-soft);
-  line-height: 1.8;
-  flex: 1;
-  margin-bottom: 16px;
+.product-info > p {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 14px;
 }
 
 /* ===================================
@@ -443,6 +437,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
+  margin-top: auto;
   transition: var(--transition);
 }
 
@@ -452,7 +447,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* ===================================
-   CTA SECTION  (matches homepage)
+   CTA SECTION  — matches homepage
 =================================== */
 
 .cta-section {
@@ -477,7 +472,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* ===================================
-   FOOTER  (identical to homepage)
+   FOOTER  — identical to homepage
 =================================== */
 
 .footer {
@@ -626,17 +621,15 @@ img { display: block; max-width: 100%; }
 
 .remove-btn {
   flex-shrink: 0;
-  width: 32px !important;
-  height: 32px !important;
-  background: crimson !important;
-  border: none !important;
-  border-radius: 50% !important;
-  color: #fff !important;
+  width: 32px;
+  height: 32px;
+  background: crimson;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
   font-size: 14px;
   cursor: pointer;
-  opacity: 1;
   transition: opacity var(--transition);
-  padding: 0 !important;
 }
 
 .remove-btn:hover { opacity: 0.8; }
@@ -677,7 +670,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* ===================================
-   SCROLL REVEAL  (matches homepage)
+   SCROLL REVEAL  — matches homepage
 =================================== */
 
 .hidden {
@@ -696,6 +689,7 @@ img { display: block; max-width: 100%; }
 =================================== */
 
 @media (max-width: 900px) {
+
   .header {
     padding: 18px 5%;
     flex-direction: column;
@@ -715,7 +709,9 @@ img { display: block; max-width: 100%; }
 
   .hero-content p { font-size: 16px; letter-spacing: 2px; }
 
-  .featured-drop { height: 50vh; }
+  .upcoming-products { min-height: 50vh; }
+
+  .overlay { padding: 35px 28px; }
 
   .products-section { padding: 70px 5%; }
 
@@ -723,12 +719,13 @@ img { display: block; max-width: 100%; }
 
   .product-card img { height: 260px; }
 
-  .cart-panel { width: 100%; right: -100%; }
-
   .cta-section { padding: 80px 6%; }
+
+  .cart-panel { width: 100%; right: -100%; }
 }
 
 @media (max-width: 480px) {
+
   .hero-content h1 { letter-spacing: 4px; }
 
   .product-card img { height: 230px; }
