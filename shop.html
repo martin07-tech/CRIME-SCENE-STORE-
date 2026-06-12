@@ -97,23 +97,39 @@
     <p>© 2026 CRIME SCENE. ALL RIGHTS RESERVED.</p>
   </footer>
 
-  <!-- CART TRIGGER -->
-  <button class="cart-trigger" onclick="toggleCart()" aria-label="Open cart">
-    🛒 <span id="cart-count">0</span>
-  </button>
+<!-- CART BUTTON -->
+<button class="cart-trigger" onclick="toggleCart()" aria-label="Open shopping cart">
+  🛒 <span id="cart-count">0</span>
+</button>
 
-  <!-- CART PANEL -->
-  <aside class="cart-panel" id="cart" role="dialog" aria-label="Shopping cart">
-    <div class="cart-panel__head">
-      <h2 class="cart-panel__title">YOUR CART</h2>
-      <button class="cart-panel__close" onclick="toggleCart()" aria-label="Close cart">✕</button>
-    </div>
-    <div class="cart-panel__items" id="cart-items"></div>
-    <div class="cart-panel__foot">
-      <div class="cart-panel__total" id="cart-total"></div>
-      <button class="cart-panel__checkout" onclick="checkoutWhatsApp()">ORDER ON WHATSAPP</button>
-    </div>
-  </aside>
+<!-- CART PANEL -->
+<aside class="cart-panel" id="cart" role="dialog" aria-label="Shopping cart">
+
+  <!-- HEADER -->
+  <header class="cart-panel__header">
+    <h2 class="cart-panel__title">Cart</h2>
+
+    <button class="cart-panel__close"
+            onclick="toggleCart()"
+            aria-label="Close cart">
+      ✕
+    </button>
+  </header>
+
+  <!-- ITEMS -->
+  <div class="cart-panel__items" id="cart-items"></div>
+
+  <!-- FOOTER -->
+  <footer class="cart-panel__footer">
+    <div class="cart-panel__total" id="cart-total"></div>
+
+    <button class="cart-panel__checkout"
+            onclick="checkoutWhatsApp()">
+      Checkout
+    </button>
+  </footer>
+
+</aside>
 
   <script src="js/product.js"></script>
 
