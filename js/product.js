@@ -11,107 +11,43 @@ window.addEventListener("load", () => {
 // =========================
 
 const products = [
-
-  {
-    id: 37,
-    name: "Interrogation Dept Tee (White)",
-    price: 220,
-    category: "tshirt",
-    sizes: ["S", "M", "L", "XL"],
-    image: "assets/images/products/IMG-20260612-WA0007.jpg"
-  },
-
-  {
-    id: 36,
-    name: "Interrogation Dept Tee (Black)",
-    price: 220,
-    category: "tshirt",
-    sizes: ["S", "M", "L", "XL"],
-    image: "assets/images/products/IMG-20260612-WA0009.jpg"
-  },
-
-  {
-    id: 35,
-    name: "Interrogation Dept Cap (White)",
-    price: 120,
-    category: "cap",
-    sizes: ["One Size"],
-    image: "assets/images/products/IMG-20260612-WA0005.jpg"
-  },
-
-  {
-    id: 34,
-    name: "Interrogation Dept Cap (Black)",
-    price: 120,
-    category: "cap",
-    sizes: ["One Size"],
-    image: "assets/images/products/IMG-20260612-WA0010.jpg"
-  },
-
-  {
-    id: 33,
-    name: "Case No. 1 Tee",
-    price: 220,
-    category: "tshirt",
-    sizes: ["S", "M", "L", "XL"],
-    image: "assets/images/products/IMG-20260512-WA0014.jpg"
-  },
-
-  {
-    id: 32,
-    name: "CS Hoodie",
-    price: 350,
-    category: "hoodie",
-    sizes: ["S", "M", "L", "XL"],
-    image: "assets/images/products/IMG-20260512-WA0007.jpg"
-  },
-
-  {
-    id: 31,
-    name: "Crime Cap",
-    price: 120,
-    category: "cap",
-    sizes: ["One Size"],
-    image: "assets/images/products/1778690174947.png"
-  },
-
-  {
-    id: 30,
-    name: "Crime Drip Tee",
-    price: 220,
-    category: "tshirt",
-    sizes: ["S", "M", "L", "XL"],
-    image: "assets/images/products/IMG-20260512-WA0011.jpg"
-  },
-
-  {
-    id: 29,
-    name: "T-Crime Shirt (Brown)",
-    price: 220,
-    category: "tshirt",
-    sizes: ["S", "M", "L", "XL"],
-    image: "assets/images/products/IMG-20260512-WA0012.jpg"
-  },
-
-  {
-    id: 28,
-    name: "Big Boys Tee",
-    price: 220,
-    category: "tshirt",
-    sizes: ["S", "M", "L", "XL"],
-    image: "assets/images/products/IMG-20260512-WA0013.jpg"
-  },
-
-  {
-    id: 27,
-    name: "Classic Crime Tee",
-    price: 220,
-    category: "tshirt",
-    sizes: ["S", "M", "L", "XL"],
-    image: "assets/images/products/IMG-20260512-WA0014.jpg"
-  }
-
-  // Continue the rest in the same format...
+  { id: 37, name: "Interrogation Dept (white): Tee",   price: 220, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260612-WA0007.jpg" },
+  { id: 36, name: "Interrogation Dept (black): Tee",   price: 220, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260612-WA0009.jpg" },
+  { id: 35, name: "Interrogation Dept (white): Cap",   price: 120, category: "cap",    sizes: ["One Size"],        image: "assets/images/products/IMG-20260612-WA0005.jpg" },
+  { id: 34, name: "Interrogation Dept (black): Cap",   price: 120, category: "cap",    sizes: ["One Size"],        image: "assets/images/products/IMG-20260612-WA0010.jpg" },
+  { id: 33, name: "Case NO:1 Tee",                     price: 220, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0014.jpg" },
+  { id: 32, name: "CS Hoodie",                         price: 350, category: "hoodie", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0007.jpg" },
+  { id: 31, name: "Crime Cap",                         price: 120, category: "cap",    sizes: ["One Size"],        image: "assets/images/products/1778690174947.png" },
+  { id: 30, name: "Crime Drip Tee",                    price: 220, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0011.jpg" },
+  { id: 29, name: "T-Crime Shirt (Brown)",             price: 220, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0012.jpg" },
+  { id: 28, name: "Big Boys Tee",                      price: 220, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0013.jpg" },
+  { id: 27, name: "Classic Crime Tee",                 price: 220, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0014.jpg" },
+  { id: 26, name: "Any Means Hoodie (Pink)",           price: 385, category: "hoodie", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0040.jpg" },
+  { id: 25, name: "Discovery Shirt (Grey)",            price: 300, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0039.jpg" },
+  { id: 24, name: "Discovery Shirt (Black)",           price: 300, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0038.jpg" },
+  { id: 23, name: "Any Means Hoodie (White)",          price: 385, category: "hoodie", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0035.jpg" },
+  { id: 22, name: "Any Means Hoodie (Blue)",           price: 385, category: "hoodie", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0034.jpg" },
+  { id: 21, name: "Any Means Hoodie (Brown)",          price: 385, category: "hoodie", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0033.jpg" },
+  { id: 20, name: "Crime Drip Shirt",                  price: 250, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0032.jpg" },
+  { id: 19, name: "Discovery Shirt (Purple)",          price: 300, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0036.jpg" },
+  { id: 18, name: "Evidence Drip Tee",                 price: 230, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0031.jpg" },
+  { id: 17, name: "CS P Hoodie (Green)",               price: 375, category: "hoodie", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0030.jpg" },
+  { id: 16, name: "CRC Shirt",                         price: 230, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0029.jpg" },
+  { id: 15, name: "CS P Hoodie (Purple)",              price: 360, category: "hoodie", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0028.jpg" },
+  { id: 14, name: "Evidence Drip Shirt",               price: 220, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0027.jpg" },
+  { id: 13, name: "Case Close Tee",                    price: 250, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0025.jpg" },
+  { id: 12, name: "Big Boy Tee (Pitch)",               price: 220, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0024.jpg" },
+  { id: 11, name: "Street Crime Shirt (Black)",        price: 230, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0022.jpg" },
+  { id: 10, name: "Street Crime Shirt (Purple)",       price: 230, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0021.jpg" },
+  { id:  9, name: "Case Secured Tee",                  price: 250, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0020.jpg" },
+  { id:  8, name: "Crime Drip Shirt (White)",          price: 250, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0019.jpg" },
+  { id:  7, name: "Crime Drip Shirt (Purple)",         price: 250, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0018.jpg" },
+  { id:  6, name: "Case Closed Tee (Pink)",            price: 250, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0017.jpg" },
+  { id:  5, name: "Case Close Tee (Black)",            price: 250, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0016.jpg" },
+  { id:  4, name: "Case 001 Shirt (White)",            price: 220, category: "tshirt", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0015.jpg" },
+  { id:  3, name: "Police Line Hoodie (White)",        price: 350, category: "hoodie", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260203-WA0005.jpg" },
+  { id:  2, name: "CS P Hoodie (Black)",               price: 375, category: "hoodie", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0009.jpg" },
+  { id:  1, name: "CS Hoodie",                         price: 360, category: "hoodie", sizes: ["S","M","L","XL"],  image: "assets/images/products/IMG-20260512-WA0044.jpg" },
 ];
 
 // =========================
